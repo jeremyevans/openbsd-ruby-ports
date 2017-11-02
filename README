@@ -1,0 +1,8 @@
+This is a collection of ports for ruby versions removed
+from the OpenBSD ports tree.  You can clone this
+repository and move it to /usr/ports/mystuff/lang/ruby,
+then you should be able to build these ports.
+
+This ports are simplified versions of what was included
+in OpenBSD.  No subpackages are used, and support for
+gdbm, tk, and ri_docs has been dropped.
