@@ -3,6 +3,7 @@
 @option is-branch
 @conflict ruby->=1.8,<1.9
 @pkgpath lang/ruby,-main
+@pkgpath lang/ruby/1.8,-main
 bin/erb18
 bin/irb18
 bin/rdoc18
@@ -605,6 +606,7 @@ lib/ruby/${REV}/${SUB}/dln.h
 lib/ruby/${REV}/${SUB}/env.h
 lib/ruby/${REV}/${SUB}/etc.so
 lib/ruby/${REV}/${SUB}/fcntl.so
+lib/ruby/${REV}/${SUB}/iconv.so
 lib/ruby/${REV}/${SUB}/intern.h
 lib/ruby/${REV}/${SUB}/io/
 lib/ruby/${REV}/${SUB}/io/wait.so
@@ -694,3 +696,4 @@ lib/ruby/vendor_ruby/${REV}/${SUB}/
 share/ri/
 share/ri/${REV}/
 share/ri/${REV}/system/
+
