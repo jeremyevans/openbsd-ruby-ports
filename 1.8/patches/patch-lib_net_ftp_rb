@@ -1,0 +1,45 @@
+$OpenBSD$
+
+Index: lib/net/ftp.rb
+--- lib/net/ftp.rb.orig
++++ lib/net/ftp.rb
+@@ -494,10 +494,10 @@ module Net
+ 		      blocksize = DEFAULT_BLOCKSIZE, &block) # :yield: data
+       if @resume
+ 	rest_offset = File.size?(localfile)
+-	f = open(localfile, "a")
++	f = File.open(localfile, "a")
+       else
+ 	rest_offset = nil
+-	f = open(localfile, "w")
++	f = File.open(localfile, "w")
+       end
+       begin
+ 	f.binmode
+@@ -516,7 +516,7 @@ module Net
+     # line at a time.
+     #
+     def gettextfile(remotefile, localfile = File.basename(remotefile), &block) # :yield: line
+-      f = open(localfile, "w")
++      f = File.open(localfile, "w")
+       begin
+ 	retrlines("RETR " + remotefile) do |line|
+ 	  f.puts(line)
+@@ -556,7 +556,7 @@ module Net
+       else
+ 	rest_offset = nil
+       end
+-      f = open(localfile)
++      f = File.open(localfile)
+       begin
+ 	f.binmode
+ 	storbinary("STOR " + remotefile, f, blocksize, rest_offset, &block)
+@@ -571,7 +571,7 @@ module Net
+     # passing in the transmitted data one line at a time.
+     #
+     def puttextfile(localfile, remotefile = File.basename(localfile), &block) # :yield: line
+-      f = open(localfile)
++      f = File.open(localfile)
+       begin
+ 	storlines("STOR " + remotefile, f, &block)
+       ensure
