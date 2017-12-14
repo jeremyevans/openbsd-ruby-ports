@@ -1,11 +1,9 @@
 # $OpenBSD: Makefile,v 1.22 2017/09/16 22:45:26 jeremy Exp $
 
-VERSION =		2.2.8
+VERSION =		2.2.9
 NEXTVER =		2.3
 
 SHARED_LIBS =		ruby${BINREV}	1.3
-
-REVISION =		0
 
 post-extract:
 	rm -rf ${WRKSRC}/ext/fiddle/libffi-*
