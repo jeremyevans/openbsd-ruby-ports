@@ -1,0 +1,22 @@
+$OpenBSD$
+
+Index: lib/rubygems.rb
+--- lib/rubygems.rb.orig
++++ lib/rubygems.rb
+@@ -590,7 +590,7 @@ module Gem
+ 
+     unless test_syck
+       begin
+-        gem 'psych', '~> 1.2', '>= 1.2.1'
++        gem 'psych', '~> 2.0.0'
+       rescue Gem::LoadError
+         # It's OK if the user does not have the psych gem installed.  We will
+         # attempt to require the stdlib version
+@@ -614,6 +614,7 @@ module Gem
+     end
+ 
+     require 'yaml'
++    require 'rubygems/safe_yaml'
+ 
+     # If we're supposed to be using syck, then we may have to force
+     # activate it via the YAML::ENGINE API.

@@ -1,0 +1,14 @@
+$OpenBSD$
+
+Index: lib/rubygems/package/old.rb
+--- lib/rubygems/package/old.rb.orig
++++ lib/rubygems/package/old.rb
+@@ -100,7 +100,7 @@ class Gem::Package::Old < Gem::Package
+       header << line
+     end
+ 
+-    YAML.load header
++    Gem::SafeYAML.safe_load header
+   end
+ 
+   ##

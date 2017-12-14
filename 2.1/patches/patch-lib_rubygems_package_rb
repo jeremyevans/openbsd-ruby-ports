@@ -1,0 +1,14 @@
+$OpenBSD$
+
+Index: lib/rubygems/package.rb
+--- lib/rubygems/package.rb.orig
++++ lib/rubygems/package.rb
+@@ -441,7 +441,7 @@ EOM
+ 
+     @checksums = gem.seek 'checksums.yaml.gz' do |entry|
+       Zlib::GzipReader.wrap entry do |gz_io|
+-        YAML.load gz_io.read
++        Gem::SafeYAML.safe_load gz_io.read
+       end
+     end
+   end

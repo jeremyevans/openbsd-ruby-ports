@@ -12,15 +12,6 @@ Index: lib/rubygems/specification.rb
    # :startdoc:
  
    ##
-@@ -973,7 +973,7 @@ class Gem::Specification < Gem::BasicSpecification
-     Gem.load_yaml
- 
-     input = normalize_yaml_input input
--    spec = YAML.load input
-+    spec = Gem::SafeYAML.safe_load input
- 
-     if spec && spec.class == FalseClass then
-       raise Gem::EndOfYAMLException
 @@ -2435,9 +2437,15 @@ class Gem::Specification < Gem::BasicSpecification
        end
      end
