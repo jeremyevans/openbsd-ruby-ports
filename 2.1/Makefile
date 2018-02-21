@@ -5,7 +5,7 @@ NEXTVER =		2.2
 
 SHARED_LIBS =		ruby${BINREV}	1.2
 
-REVISION =		7
+REVISION =		8
 
 CONFIGURE_ARGS2 =	--program-suffix=21 \
 			--with-soname=ruby21 \

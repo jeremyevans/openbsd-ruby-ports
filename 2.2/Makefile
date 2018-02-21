@@ -3,6 +3,10 @@
 VERSION =		2.2.9
 NEXTVER =		2.3
 
+REVISION =		0
+PATCHFILES =		7030/rubygems-276-for-ruby22.patch:0
+MASTER_SITES0 ?=	https://bugs.ruby-lang.org/attachments/download/
+
 SHARED_LIBS =		ruby${BINREV}	1.3
 
 post-extract:

@@ -3,7 +3,15 @@ $OpenBSD: patch-lib_rubygems_specification_rb,v 1.1 2017/09/02 21:32:07 jeremy E
 Index: lib/rubygems/specification.rb
 --- lib/rubygems/specification.rb.orig
 +++ lib/rubygems/specification.rb
-@@ -112,6 +112,8 @@ class Gem::Specification < Gem::BasicSpecification
+@@ -13,6 +13,7 @@ require 'rubygems/deprecate'
+ require 'rubygems/basic_specification'
+ require 'rubygems/stub_specification'
+ require 'rubygems/util/stringio'
++require 'uri'
+ 
+ # :stopdoc:
+ # date.rb can't be loaded for `make install` due to miniruby
+@@ -112,6 +113,8 @@ class Gem::Specification < Gem::BasicSpecification
  
    private_constant :LOAD_CACHE if defined? private_constant
  
@@ -12,7 +20,7 @@ Index: lib/rubygems/specification.rb
    # :startdoc:
  
    ##
-@@ -973,7 +973,7 @@ class Gem::Specification < Gem::BasicSpecification
+@@ -971,7 +974,7 @@ class Gem::Specification < Gem::BasicSpecification
      Gem.load_yaml
  
      input = normalize_yaml_input input
@@ -21,7 +29,7 @@ Index: lib/rubygems/specification.rb
  
      if spec && spec.class == FalseClass then
        raise Gem::EndOfYAMLException
-@@ -2435,9 +2437,15 @@ class Gem::Specification < Gem::BasicSpecification
+@@ -2435,9 +2438,15 @@ class Gem::Specification < Gem::BasicSpecification
        end
      end
  
@@ -39,3 +47,24 @@ Index: lib/rubygems/specification.rb
      end
  
      if @require_paths.empty? then
+@@ -2559,10 +2568,16 @@ http://opensource.org/licenses/alphabetical
+       raise Gem::InvalidSpecificationException, "#{lazy} is not a summary"
+     end
+ 
+-    if homepage and not homepage.empty? and
+-       homepage !~ /\A[a-z][a-z\d+.-]*:/i then
+-      raise Gem::InvalidSpecificationException,
+-            "\"#{homepage}\" is not a URI"
++    # Make sure a homepage is valid HTTP/HTTPS URI
++    if homepage and not homepage.empty?
++      begin
++        homepage_uri = URI.parse(homepage)
++        unless [URI::HTTP, URI::HTTPS].member? homepage_uri.class
++          raise Gem::InvalidSpecificationException, "\"#{homepage}\" is not a valid HTTP URI"
++        end
++      rescue URI::InvalidURIError
++        raise Gem::InvalidSpecificationException, "\"#{homepage}\" is not a valid HTTP URI"
++      end
+     end
+ 
+     # Warnings

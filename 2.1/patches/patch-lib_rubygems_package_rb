@@ -3,6 +3,15 @@ $OpenBSD$
 Index: lib/rubygems/package.rb
 --- lib/rubygems/package.rb.orig
 +++ lib/rubygems/package.rb
+@@ -397,7 +397,7 @@ EOM
+     destination = File.expand_path destination
+ 
+     raise Gem::Package::PathError.new(destination, destination_dir) unless
+-      destination.start_with? destination_dir
++      destination.start_with? destination_dir + '/'
+ 
+     destination.untaint
+     destination
 @@ -441,7 +441,7 @@ EOM
  
      @checksums = gem.seek 'checksums.yaml.gz' do |entry|
@@ -12,3 +21,14 @@ Index: lib/rubygems/package.rb
        end
      end
    end
+@@ -575,6 +575,10 @@ EOM
+     unless @files.include? 'data.tar.gz' then
+       raise Gem::Package::FormatError.new \
+               'package content (data.tar.gz) is missing', @gem
++    end
++
++    if duplicates = @files.group_by {|f| f }.select {|k,v| v.size > 1 }.map(&:first) and duplicates.any?
++      raise Gem::Security::Exception, "duplicate files in the package: (#{duplicates.map(&:inspect).join(', ')})"
+     end
+   end
+ 
