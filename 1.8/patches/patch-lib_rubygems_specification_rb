@@ -6,7 +6,15 @@ b61c621fb2e00e215bcc8ad7d9fe45433881da14.
 Index: lib/rubygems/specification.rb
 --- lib/rubygems/specification.rb.orig
 +++ lib/rubygems/specification.rb
-@@ -275,6 +275,12 @@ class Gem::Specification
+@@ -8,6 +8,7 @@ require 'rubygems/version'
+ require 'rubygems/requirement'
+ require 'rubygems/platform'
+ require "rubygems/deprecate"
++require "uri"
+ 
+ # :stopdoc:
+ class Date; end # for ruby_code if date.rb wasn't required
+@@ -275,6 +276,12 @@ class Gem::Specification
  
        @@all = specs.values
  
@@ -19,7 +27,7 @@ Index: lib/rubygems/specification.rb
        _resort!
      end
      @@all
-@@ -2007,9 +2013,15 @@ class Gem::Specification
+@@ -2007,9 +2014,15 @@ class Gem::Specification
        end
      end
  
@@ -36,3 +44,23 @@ Index: lib/rubygems/specification.rb
      end
  
      if require_paths.empty? then
+@@ -2090,10 +2103,15 @@ class Gem::Specification
+       raise Gem::InvalidSpecificationException, "#{lazy} is not a summary"
+     end
+ 
+-    if homepage and not homepage.empty? and
+-       homepage !~ /\A[a-z][a-z\d+.-]*:/i then
+-      raise Gem::InvalidSpecificationException,
+-            "\"#{homepage}\" is not a URI"
++    if homepage and not homepage.empty?
++      begin
++        homepage_uri = URI.parse(homepage)
++        unless [URI::HTTP, URI::HTTPS].member? homepage_uri.class
++          raise Gem::InvalidSpecificationException, "\"#{homepage}\" is not a valid HTTP URI"
++        end
++      rescue URI::InvalidURIError
++        raise Gem::InvalidSpecificationException, "\"#{homepage}\" is not a valid HTTP URI"
++      end
+     end
+ 
+     # Warnings

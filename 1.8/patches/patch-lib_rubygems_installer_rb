@@ -14,3 +14,22 @@ Index: lib/rubygems/installer.rb
      unless @force
        ensure_required_ruby_version_met
        ensure_required_rubygems_version_met
+@@ -566,6 +570,9 @@ EOF
+   def extract_files
+     raise ArgumentError, "format required to extract from" if @format.nil?
+ 
++    if duplicates = @format.file_entries.map{|e, _| e['path']}.group_by{|f| f}.select{|k,v| v.size > 1 }.map(&:first) and duplicates.any?
++      raise Gem::InstallError, "duplicate files in the package: (#{duplicates.map(&:inspect).join(', ')})"
++    end
+     @format.file_entries.each do |entry, file_data|
+       path = entry['path'].untaint
+ 
+@@ -575,7 +582,7 @@ EOF
+ 
+       path = File.expand_path File.join(gem_dir, path)
+ 
+-      unless path.start_with? gem_dir then
++      unless path.start_with?(gem_dir+'/') then
+         msg = "attempt to install file into %p under %s" %
+                 [entry['path'], gem_dir]
+         raise Gem::InstallError, msg
