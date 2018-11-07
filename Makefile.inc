@@ -44,7 +44,7 @@ MAKE_ENV +=		DLDFLAGS="-I${LOCALBASE}/lib"
 
 WANTLIB +=		c crypto ffi gmp m ncurses pthread readline ssl \
 			util yaml z
-LIB_DEPENDS +=		devel/gmp \
+LIB_DEPENDS +=		devel/gmp,-main \
 			devel/libyaml \
 			devel/libffi
 

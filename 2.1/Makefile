@@ -5,15 +5,9 @@ NEXTVER =		2.2
 
 SHARED_LIBS =		ruby${BINREV}	1.2
 
-REVISION =		8
+REVISION =		9
 
-CONFIGURE_ARGS2 =	--program-suffix=21 \
-			--with-soname=ruby21 \
-			--with-ruby-version=minor \
-			--with-mantype=doc \
-			--enable-pthread \
-			--enable-ipv6 \
-			--disable-option-checking
+CONFIGURE_ENV +=	CFLAGS="-O0 -ggdb"
 
 pre-install:
 	${PRE_INSTALL}
