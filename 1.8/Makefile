@@ -8,7 +8,7 @@ DISTNAME =		ruby-${VERSION}-p${PATCHLEVEL}
 SHARED_LIBS=		ruby${BINREV} 0.0
 PKGNAME=		ruby-${VERSION}.${PATCHLEVEL}
 
-REVISION=		17
+REVISION=		18
 MASTER_SITES0=		http://production.cf.rubygems.org/rubygems/
 
 DISTFILES=		${DISTNAME}${EXTRACT_SUFX} \
