@@ -2,7 +2,7 @@
 
 VERSION =		2.2.10
 NEXTVER =		2.3
-REVISION =		1
+REVISION =		2
 
 SHARED_LIBS =		ruby${BINREV}	1.3
 
