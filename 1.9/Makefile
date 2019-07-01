@@ -8,7 +8,7 @@ DISTNAME =		ruby-${VERSION}-p${PATCHLEVEL}
 SHARED_LIBS =		ruby${BINREV} 1.1
 PKGNAME =		ruby-${VERSION}.${PATCHLEVEL}
 
-REVISION =		6
+REVISION =		7
 
 CONFIGURE_ARGS =	--enable-shared \
 			--program-suffix=${BINREV} \

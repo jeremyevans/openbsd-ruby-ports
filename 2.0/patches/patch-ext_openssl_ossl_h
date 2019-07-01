@@ -3,7 +3,7 @@ $OpenBSD$
 Index: ext/openssl/ossl.h
 --- ext/openssl/ossl.h.orig
 +++ ext/openssl/ossl.h
-@@ -54,7 +54,7 @@ extern "C" {
+@@ -55,7 +55,7 @@ extern "C" {
  #endif
  #include <errno.h>
  #include <openssl/err.h>

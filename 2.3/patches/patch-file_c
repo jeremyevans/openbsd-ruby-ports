@@ -1,0 +1,97 @@
+$OpenBSD$
+
+Backport use of realpath(3) for File.realpath to allow unveil(2) to work.
+
+Index: file.c
+--- file.c.orig
++++ file.c
+@@ -122,6 +122,9 @@ int flock(int, int);
+ #define STAT(p, s)	stat((p), (s))
+ #endif
+ 
++#include <limits.h>
++#include <stdlib.h>
++
+ VALUE rb_cFile;
+ VALUE rb_mFileTest;
+ VALUE rb_cStat;
+@@ -3835,7 +3838,7 @@ rb_realpath_internal(VALUE basedir, VALUE path, int st
+ }
+ #else
+ VALUE
+-rb_realpath_internal(VALUE basedir, VALUE path, int strict)
++rb_realpath_emulate(VALUE basedir, VALUE path, int strict)
+ {
+     long prefixlen;
+     VALUE resolved;
+@@ -3915,6 +3918,61 @@ rb_realpath_internal(VALUE basedir, VALUE path, int st
+     OBJ_TAINT(resolved);
+     return resolved;
+ }
++
++static VALUE rb_file_join(VALUE ary, VALUE sep);
++
++VALUE
++rb_realpath_internal(VALUE basedir, VALUE path, int strict)
++{
++    VALUE unresolved_path;
++    rb_encoding *origenc;
++    char *resolved_ptr = NULL;
++    VALUE resolved;
++    struct stat st;
++
++    if (!strict) {
++       return rb_realpath_emulate(basedir, path, strict);
++    }
++
++    unresolved_path = rb_str_dup_frozen(path);
++    origenc = rb_enc_get(unresolved_path);
++    if (*RSTRING_PTR(unresolved_path) != '/' && !NIL_P(basedir)) {
++       unresolved_path = rb_file_join(rb_ary_new_from_args(2, basedir, unresolved_path), rb_str_new2("/"));
++    }
++
++    if((resolved_ptr = realpath(RSTRING_PTR(unresolved_path), NULL)) == NULL) {
++       if (errno == ENOTDIR ||
++           (errno == ENOENT && rb_file_exist_p(0, unresolved_path))) {
++           return rb_realpath_emulate(basedir, path, strict);
++
++       }
++       rb_sys_fail_path(unresolved_path);
++    }
++    resolved = ospath_new(resolved_ptr, strlen(resolved_ptr), rb_filesystem_encoding());
++    free(resolved_ptr);
++
++    if (rb_stat(resolved, &st) < 0) {
++       rb_sys_fail_path(unresolved_path);
++    }
++
++    if (origenc != rb_enc_get(resolved)) {
++       if (!rb_enc_str_asciionly_p(resolved)) {
++           resolved = rb_str_conv_enc(resolved, NULL, origenc);
++       }
++       rb_enc_associate(resolved, origenc);
++    }
++
++    if(rb_enc_str_coderange(resolved) == ENC_CODERANGE_BROKEN) {
++       rb_enc_associate(resolved, rb_filesystem_encoding());
++       if(rb_enc_str_coderange(resolved) == ENC_CODERANGE_BROKEN) {
++           rb_enc_associate(resolved, rb_ascii8bit_encoding());
++       }
++    }
++
++    rb_obj_taint(resolved);
++    RB_GC_GUARD(unresolved_path);
++    return resolved;
++}
+ #endif
+ 
+ /*
+@@ -4319,8 +4377,6 @@ rb_file_s_split(VALUE klass, VALUE path)
+ }
+ 
+ static VALUE separator;
+-
+-static VALUE rb_file_join(VALUE ary, VALUE sep);
+ 
+ static VALUE
+ file_inspect_join(VALUE ary, VALUE argp, int recur)

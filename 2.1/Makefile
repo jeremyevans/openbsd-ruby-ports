@@ -5,7 +5,7 @@ NEXTVER =		2.2
 
 SHARED_LIBS =		ruby${BINREV}	1.2
 
-REVISION =		11
+REVISION =		12
 
 CONFIGURE_ENV +=	CFLAGS="-O0 -ggdb"
 

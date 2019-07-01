@@ -1,7 +1,8 @@
 $OpenBSD: patch-ext_openssl_ossl_ssl_c,v 1.1 2015/08/27 15:55:04 kili Exp $
---- ext/openssl/ossl_ssl.c.orig	Wed Feb  8 07:09:40 2012
-+++ ext/openssl/ossl_ssl.c	Thu Aug 27 17:12:23 2015
-@@ -107,9 +107,12 @@ struct {
+Index: ext/openssl/ossl_ssl.c
+--- ext/openssl/ossl_ssl.c.orig
++++ ext/openssl/ossl_ssl.c
+@@ -113,9 +113,12 @@ struct {
      OSSL_SSL_METHOD_ENTRY(SSLv2_server),
      OSSL_SSL_METHOD_ENTRY(SSLv2_client),
  #endif
