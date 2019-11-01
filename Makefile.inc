@@ -69,6 +69,9 @@ SUB ?=			${MACHINE_ARCH:S/amd64/x86_64/}-openbsd
 SUBST_VARS +=		SUB REV
 FILESDIR ?=		${.CURDIR}/../files
 
+FIX_RIPPER ?=	sed -i 's/%%CFLAGS_OVERRIDE%%/${CFLAGS_OVERRIDE}/g' \
+			${WRKSRC}/ext/ripper/depend;
+
 FIX_RBCONFIG ?=		sed 's/INSTALL_ARGS/-c -o ${BINOWN} -g ${BINGRP}/' < \
 				${FILESDIR}/rbconfig_fix.rb >> \
 				${PREFIX}/lib/ruby/${REV}/${SUB}/rbconfig.rb
