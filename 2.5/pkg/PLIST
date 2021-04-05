@@ -771,12 +771,9 @@ lib/ruby/${REV}/rubygems/source_specific_file.rb
 lib/ruby/${REV}/rubygems/spec_fetcher.rb
 lib/ruby/${REV}/rubygems/specification.rb
 lib/ruby/${REV}/rubygems/ssl_certs/
-lib/ruby/${REV}/rubygems/ssl_certs/index.rubygems.org/
-lib/ruby/${REV}/rubygems/ssl_certs/index.rubygems.org/GlobalSignRootCA.pem
-lib/ruby/${REV}/rubygems/ssl_certs/rubygems.global.ssl.fastly.net/
-lib/ruby/${REV}/rubygems/ssl_certs/rubygems.global.ssl.fastly.net/DigiCertHighAssuranceEVRootCA.pem
 lib/ruby/${REV}/rubygems/ssl_certs/rubygems.org/
-lib/ruby/${REV}/rubygems/ssl_certs/rubygems.org/AddTrustExternalCARoot.pem
+lib/ruby/${REV}/rubygems/ssl_certs/rubygems.org/GlobalSignRootCA.pem
+lib/ruby/${REV}/rubygems/ssl_certs/rubygems.org/GlobalSignRootCA_R3.pem
 lib/ruby/${REV}/rubygems/stub_specification.rb
 lib/ruby/${REV}/rubygems/syck_hack.rb
 lib/ruby/${REV}/rubygems/test_case.rb
@@ -1389,7 +1386,7 @@ lib/ruby/gems/${REV}/specifications/default/scanf-1.0.0.gemspec
 lib/ruby/gems/${REV}/specifications/default/sdbm-1.0.0.gemspec
 lib/ruby/gems/${REV}/specifications/default/stringio-0.0.1.gemspec
 lib/ruby/gems/${REV}/specifications/default/strscan-1.0.0.gemspec
-lib/ruby/gems/${REV}/specifications/default/webrick-1.4.2.gemspec
+lib/ruby/gems/${REV}/specifications/default/webrick-1.4.2.1.gemspec
 lib/ruby/gems/${REV}/specifications/default/zlib-1.0.0.gemspec
 lib/ruby/gems/${REV}/specifications/did_you_mean-1.2.0.gemspec
 lib/ruby/gems/${REV}/specifications/minitest-5.10.3.gemspec
