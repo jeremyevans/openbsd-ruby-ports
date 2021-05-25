@@ -1,0 +1,14 @@
+$OpenBSD$
+
+Index: ext/openssl/ruby_missing.h
+--- ext/openssl/ruby_missing.h.orig
++++ ext/openssl/ruby_missing.h
+@@ -17,7 +17,7 @@
+ 
+ /* Ruby 2.4 */
+ #ifndef RB_INTEGER_TYPE_P
+-# define RB_INTEGER_TYPE_P(obj) (RB_FIXNUM_P(obj) || RB_TYPE_P(obj, T_BIGNUM))
++# define RB_INTEGER_TYPE_P(obj) (RB_TYPE_P(obj, T_FIXNUM) || RB_TYPE_P(obj, T_BIGNUM))
+ #endif
+ 
+ /* Ruby 2.5 */

@@ -8,7 +8,7 @@ DISTNAME =		ruby-${VERSION}-p${PATCHLEVEL}
 SHARED_LIBS=		ruby${BINREV} 0.0
 PKGNAME=		ruby-${VERSION}.${PATCHLEVEL}
 
-REVISION=		18
+REVISION=		19
 MASTER_SITES0=		http://production.cf.rubygems.org/rubygems/
 
 DISTFILES=		${DISTNAME}${EXTRACT_SUFX} \
@@ -18,6 +18,7 @@ CONFIGURE_ARGS=		--enable-shared \
 			--program-suffix=${BINREV} \
 			--enable-ipv6 \
 			--with-dbm-type=bogus \
+			--without-openssl \
 			--with-opt-dir="${LOCALBASE}" \
 			--disable-option-checking
 

@@ -1,0 +1,13 @@
+$OpenBSD$
+
+Index: ext/openssl/ossl_x509cert.c
+--- ext/openssl/ossl_x509cert.c.orig
++++ ext/openssl/ossl_x509cert.c
+@@ -83,7 +83,6 @@ ossl_x509_new_from_file(VALUE filename)
+     if (!(fp = fopen(StringValueCStr(filename), "r"))) {
+ 	ossl_raise(eX509CertError, "%s", strerror(errno));
+     }
+-    rb_fd_fix_cloexec(fileno(fp));
+     x509 = PEM_read_X509(fp, NULL, NULL, NULL);
+     /*
+      * prepare for DER...

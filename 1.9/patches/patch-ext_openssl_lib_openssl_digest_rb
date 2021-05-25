@@ -1,0 +1,13 @@
+$OpenBSD$
+
+Index: ext/openssl/lib/openssl/digest.rb
+--- ext/openssl/lib/openssl/digest.rb.orig
++++ ext/openssl/lib/openssl/digest.rb
+@@ -55,7 +55,6 @@ module OpenSSL
+     # This class is only provided for backwards compatibility.
+     # Use OpenSSL::Digest instead.
+     class Digest < Digest; end # :nodoc:
+-    deprecate_constant :Digest
+ 
+   end # Digest
+ 

@@ -1,0 +1,15 @@
+$OpenBSD$
+
+Index: ext/openssl/ossl_x509name.c
+--- ext/openssl/ossl_x509name.c.orig
++++ ext/openssl/ossl_x509name.c
+@@ -281,7 +281,8 @@ x509name_print(VALUE self, unsigned long iflag)
+ static VALUE
+ ossl_x509name_to_s(int argc, VALUE *argv, VALUE self)
+ {
+-    rb_check_arity(argc, 0, 1);
++    VALUE flag;
++    rb_scan_args(argc, argv, "01", &flag);
+     /* name.to_s(nil) was allowed */
+     if (!argc || NIL_P(argv[0]))
+ 	return ossl_x509name_to_s_old(self);

@@ -1,0 +1,30 @@
+$OpenBSD$
+
+Index: ext/openssl/ossl_pkcs7.c
+--- ext/openssl/ossl_pkcs7.c.orig
++++ ext/openssl/ossl_pkcs7.c
+@@ -431,7 +431,6 @@ ossl_pkcs7_sym2typeid(VALUE sym)
+ {
+     int i, ret = Qnil;
+     const char *s;
+-    size_t l;
+ 
+     static const struct {
+         char name[20];
+@@ -445,14 +444,12 @@ ossl_pkcs7_sym2typeid(VALUE sym)
+         { "digest",             NID_pkcs7_digest },
+     };
+ 
+-    if (SYMBOL_P(sym)) sym = rb_sym2str(sym);
+-    else StringValue(sym);
+-    RSTRING_GETMEM(sym, s, l);
++    if (RB_TYPE_P(sym, T_SYMBOL)) s = rb_id2name(SYM2ID(sym));
++    else s = StringValuePtr(sym);
+ 
+     for(i = 0; ; i++){
+ 	if(i == numberof(p7_type_tab))
+ 	    ossl_raise(ePKCS7Error, "unknown type \"%"PRIsVALUE"\"", sym);
+-	if(strlen(p7_type_tab[i].name) != l) continue;
+ 	if(strcmp(p7_type_tab[i].name, s) == 0){
+ 	    ret = p7_type_tab[i].nid;
+ 	    break;

@@ -8,7 +8,7 @@ DISTNAME =		ruby-${VERSION}-p${PATCHLEVEL}
 SHARED_LIBS =		ruby${BINREV} 1.1
 PKGNAME =		ruby-${VERSION}.${PATCHLEVEL}
 
-REVISION =		7
+REVISION =		8
 
 CONFIGURE_ARGS =	--enable-shared \
 			--program-suffix=${BINREV} \
@@ -23,6 +23,20 @@ LIB_DEPENDS =		converters/libiconv
 
 RUBYLIBREV =		1.9.1
 SUBST_VARS +=		RUBYLIBREV
+
+DISTFILES =	${DISTNAME}.tar.gz \
+		ruby-2.4.9.tar.gz
+
+post-extract:
+	rm -rf ${WRKSRC}/ext/openssl
+	cp -Rp ${WRKSRC}/../ruby-2.4.9/ext/openssl ${WRKSRC}/ext/
+	egrep -v '(backward\.h|thread_native\.h|thread.h)' ${WRKSRC}/ext/openssl/depend > \
+		${WRKSRC}/ext/openssl/depend.new
+	mv ${WRKSRC}/ext/openssl/depend{.new,}
+	rm ${WRKSRC}/ext/openssl/openssl.gemspec
+	sed -i 's/rb_nativethread_self/pthread_self/g' ${WRKSRC}/ext/openssl/ossl.c
+	sed -i 's/rb_nativethread/rb_thread/g' ${WRKSRC}/ext/openssl/ossl.c
+	sed -i 's/RUBY_TYPED_FREE_IMMEDIATELY,//g' ${WRKSRC}/ext/openssl/*.c
 
 pre-install:
 	${INSTALL_DATA_DIR} ${PREFIX}/share/doc/ruby

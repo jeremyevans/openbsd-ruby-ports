@@ -5,9 +5,20 @@ NEXTVER =		2.2
 
 SHARED_LIBS =		ruby${BINREV}	1.2
 
-REVISION =		12
+REVISION =		13
 
 CONFIGURE_ENV +=	CFLAGS="-O0 -ggdb"
+
+DISTFILES =	ruby-${VERSION}.tar.gz \
+		ruby-2.4.9.tar.gz
+
+post-extract:
+	rm -rf ${WRKSRC}/ext/openssl
+	cp -Rp ${WRKSRC}/../ruby-2.4.9/ext/openssl ${WRKSRC}/ext/
+	egrep -v '(backward\.h|thread_native\.h)' ${WRKSRC}/ext/openssl/depend > \
+		${WRKSRC}/ext/openssl/depend.new
+	mv ${WRKSRC}/ext/openssl/depend{.new,}
+	rm ${WRKSRC}/ext/openssl/openssl.gemspec
 
 pre-install:
 	${PRE_INSTALL}

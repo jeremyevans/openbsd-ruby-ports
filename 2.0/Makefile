@@ -8,13 +8,27 @@ DISTNAME =		ruby-${VERSION}-p${PATCHLEVEL}
 SHARED_LIBS =		ruby${BINREV}	1.1
 PKGNAME =		ruby-${VERSION}.${PATCHLEVEL}
 
-REVISION =		6
+REVISION =		7
 
 BUILD_DEPENDS =		shells/bash
 
 CONFIGURE_SCRIPT =	${LOCALBASE}/bin/bash ./configure
 
 WANTLIB =		ncursesw termcap
+
+DISTFILES =	${DISTNAME}.tar.gz \
+		ruby-2.4.9.tar.gz
+
+post-extract:
+	rm -rf ${WRKSRC}/ext/openssl
+	cp -Rp ${WRKSRC}/../ruby-2.4.9/ext/openssl ${WRKSRC}/ext/
+	egrep -v '(backward\.h|thread_native\.h)' ${WRKSRC}/ext/openssl/depend > \
+		${WRKSRC}/ext/openssl/depend.new
+	mv ${WRKSRC}/ext/openssl/depend{.new,}
+	rm ${WRKSRC}/ext/openssl/openssl.gemspec
+	sed -i 's/rb_nativethread_self/pthread_self/g' ${WRKSRC}/ext/openssl/ossl.c
+	sed -i 's/rb_nativethread/rb_thread/g' ${WRKSRC}/ext/openssl/ossl.c
+	sed -i 's/RUBY_TYPED_FREE_IMMEDIATELY,//g' ${WRKSRC}/ext/openssl/*.c
 
 pre-install:
 	find ${WRKSRC} -name '*.orig' -print0 | xargs -0r rm

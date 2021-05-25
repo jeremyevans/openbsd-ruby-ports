@@ -11,8 +11,8 @@ bin/rdoc18
 bin/ri18
 @bin bin/ruby18
 bin/testrb18
-lib/libruby18-static.a
-lib/libruby18.so
+@static-lib lib/libruby18-static.a
+@so lib/libruby18.so
 @lib lib/libruby18.so.${LIBruby18_VERSION}
 lib/ruby/
 lib/ruby/${REV}/
@@ -135,7 +135,6 @@ lib/ruby/${REV}/monitor.rb
 lib/ruby/${REV}/mutex_m.rb
 lib/ruby/${REV}/net/
 lib/ruby/${REV}/net/ftp.rb
-lib/ruby/${REV}/net/ftptls.rb
 lib/ruby/${REV}/net/http.rb
 lib/ruby/${REV}/net/https.rb
 lib/ruby/${REV}/net/imap.rb
@@ -143,22 +142,9 @@ lib/ruby/${REV}/net/pop.rb
 lib/ruby/${REV}/net/protocol.rb
 lib/ruby/${REV}/net/smtp.rb
 lib/ruby/${REV}/net/telnet.rb
-lib/ruby/${REV}/net/telnets.rb
 lib/ruby/${REV}/observer.rb
 lib/ruby/${REV}/open-uri.rb
 lib/ruby/${REV}/open3.rb
-lib/ruby/${REV}/openssl/
-lib/ruby/${REV}/openssl.rb
-lib/ruby/${REV}/openssl/bn.rb
-lib/ruby/${REV}/openssl/buffering.rb
-lib/ruby/${REV}/openssl/cipher.rb
-lib/ruby/${REV}/openssl/config.rb
-lib/ruby/${REV}/openssl/digest.rb
-lib/ruby/${REV}/openssl/pkcs7.rb
-lib/ruby/${REV}/openssl/ssl-internal.rb
-lib/ruby/${REV}/openssl/ssl.rb
-lib/ruby/${REV}/openssl/x509-internal.rb
-lib/ruby/${REV}/openssl/x509.rb
 lib/ruby/${REV}/optparse/
 lib/ruby/${REV}/optparse.rb
 lib/ruby/${REV}/optparse/date.rb
@@ -687,55 +673,55 @@ lib/ruby/${REV}/wsdl/xmlSchema/simpleType.rb
 lib/ruby/${REV}/wsdl/xmlSchema/unique.rb
 lib/ruby/${REV}/wsdl/xmlSchema/xsd2ruby.rb
 lib/ruby/${REV}/${SUB}/
-lib/ruby/${REV}/${SUB}/bigdecimal.so
+@so lib/ruby/${REV}/${SUB}/bigdecimal.so
 lib/ruby/${REV}/${SUB}/config.h
-lib/ruby/${REV}/${SUB}/curses.so
-lib/ruby/${REV}/${SUB}/dbm.so
+@so lib/ruby/${REV}/${SUB}/curses.so
+@so lib/ruby/${REV}/${SUB}/dbm.so
 lib/ruby/${REV}/${SUB}/defines.h
 lib/ruby/${REV}/${SUB}/digest/
 lib/ruby/${REV}/${SUB}/digest.h
-lib/ruby/${REV}/${SUB}/digest.so
-lib/ruby/${REV}/${SUB}/digest/bubblebabble.so
-lib/ruby/${REV}/${SUB}/digest/md5.so
-lib/ruby/${REV}/${SUB}/digest/rmd160.so
-lib/ruby/${REV}/${SUB}/digest/sha1.so
-lib/ruby/${REV}/${SUB}/digest/sha2.so
+@so lib/ruby/${REV}/${SUB}/digest.so
+@so lib/ruby/${REV}/${SUB}/digest/bubblebabble.so
+@so lib/ruby/${REV}/${SUB}/digest/md5.so
+@so lib/ruby/${REV}/${SUB}/digest/rmd160.so
+@so lib/ruby/${REV}/${SUB}/digest/sha1.so
+@so lib/ruby/${REV}/${SUB}/digest/sha2.so
 lib/ruby/${REV}/${SUB}/dl.h
-lib/ruby/${REV}/${SUB}/dl.so
+@so lib/ruby/${REV}/${SUB}/dl.so
 lib/ruby/${REV}/${SUB}/dlconfig.h
 lib/ruby/${REV}/${SUB}/dln.h
 lib/ruby/${REV}/${SUB}/env.h
-lib/ruby/${REV}/${SUB}/etc.so
-lib/ruby/${REV}/${SUB}/fcntl.so
-lib/ruby/${REV}/${SUB}/iconv.so
+@so lib/ruby/${REV}/${SUB}/etc.so
+@so lib/ruby/${REV}/${SUB}/fcntl.so
+@so lib/ruby/${REV}/${SUB}/gdbm.so
+@so lib/ruby/${REV}/${SUB}/iconv.so
 lib/ruby/${REV}/${SUB}/intern.h
 lib/ruby/${REV}/${SUB}/io/
-lib/ruby/${REV}/${SUB}/io/wait.so
+@so lib/ruby/${REV}/${SUB}/io/wait.so
 lib/ruby/${REV}/${SUB}/missing.h
-lib/ruby/${REV}/${SUB}/nkf.so
+@so lib/ruby/${REV}/${SUB}/nkf.so
 lib/ruby/${REV}/${SUB}/node.h
-lib/ruby/${REV}/${SUB}/openssl.so
-lib/ruby/${REV}/${SUB}/pty.so
+@so lib/ruby/${REV}/${SUB}/pty.so
 lib/ruby/${REV}/${SUB}/racc/
-lib/ruby/${REV}/${SUB}/racc/cparse.so
+@so lib/ruby/${REV}/${SUB}/racc/cparse.so
 lib/ruby/${REV}/${SUB}/rbconfig.rb
 lib/ruby/${REV}/${SUB}/re.h
-lib/ruby/${REV}/${SUB}/readline.so
+@so lib/ruby/${REV}/${SUB}/readline.so
 lib/ruby/${REV}/${SUB}/regex.h
 lib/ruby/${REV}/${SUB}/ruby.h
 lib/ruby/${REV}/${SUB}/rubyio.h
 lib/ruby/${REV}/${SUB}/rubysig.h
-lib/ruby/${REV}/${SUB}/sdbm.so
-lib/ruby/${REV}/${SUB}/socket.so
+@so lib/ruby/${REV}/${SUB}/sdbm.so
+@so lib/ruby/${REV}/${SUB}/socket.so
 lib/ruby/${REV}/${SUB}/st.h
-lib/ruby/${REV}/${SUB}/stringio.so
-lib/ruby/${REV}/${SUB}/strscan.so
-lib/ruby/${REV}/${SUB}/syck.so
-lib/ruby/${REV}/${SUB}/syslog.so
-lib/ruby/${REV}/${SUB}/thread.so
+@so lib/ruby/${REV}/${SUB}/stringio.so
+@so lib/ruby/${REV}/${SUB}/strscan.so
+@so lib/ruby/${REV}/${SUB}/syck.so
+@so lib/ruby/${REV}/${SUB}/syslog.so
+@so lib/ruby/${REV}/${SUB}/thread.so
 lib/ruby/${REV}/${SUB}/util.h
 lib/ruby/${REV}/${SUB}/version.h
-lib/ruby/${REV}/${SUB}/zlib.so
+@so lib/ruby/${REV}/${SUB}/zlib.so
 lib/ruby/${REV}/xmlrpc/
 lib/ruby/${REV}/xmlrpc/base64.rb
 lib/ruby/${REV}/xmlrpc/client.rb

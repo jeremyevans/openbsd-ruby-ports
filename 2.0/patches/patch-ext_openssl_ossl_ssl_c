@@ -1,16 +1,31 @@
-$OpenBSD: patch-ext_openssl_ossl_ssl_c,v 1.1 2015/08/27 15:55:04 kili Exp $
---- ext/openssl/ossl_ssl.c.orig	Thu Jan 30 16:51:02 2014
-+++ ext/openssl/ossl_ssl.c	Thu Aug 27 17:18:21 2015
-@@ -129,9 +129,12 @@ struct {
-     OSSL_SSL_METHOD_ENTRY(SSLv2_server),
-     OSSL_SSL_METHOD_ENTRY(SSLv2_client),
- #endif
-+#if defined(HAVE_SSLV3_METHOD) && defined(HAVE_SSLV3_SERVER_METHOD) && \
-+        defined(HAVE_SSLV3_CLIENT_METHOD)
-     OSSL_SSL_METHOD_ENTRY(SSLv3),
-     OSSL_SSL_METHOD_ENTRY(SSLv3_server),
-     OSSL_SSL_METHOD_ENTRY(SSLv3_client),
-+#endif
-     OSSL_SSL_METHOD_ENTRY(SSLv23),
-     OSSL_SSL_METHOD_ENTRY(SSLv23_server),
-     OSSL_SSL_METHOD_ENTRY(SSLv23_client),
+$OpenBSD$
+
+Index: ext/openssl/ossl_ssl.c
+--- ext/openssl/ossl_ssl.c.orig
++++ ext/openssl/ossl_ssl.c
+@@ -158,13 +158,13 @@ ossl_sslctx_set_ssl_version(VALUE self, VALUE ssl_meth
+ {
+     SSL_CTX *ctx;
+     const char *s;
+-    VALUE m = ssl_method;
+     int i;
+ 
+     GetSSLCTX(self, ctx);
+     if (RB_TYPE_P(ssl_method, T_SYMBOL))
+-	m = rb_sym2str(ssl_method);
+-    s = StringValueCStr(m);
++	s = rb_id2name(SYM2ID(ssl_method));
++    else
++	s =  StringValuePtr(ssl_method);
+     for (i = 0; i < numberof(ossl_ssl_method_tab); i++) {
+         if (strcmp(ossl_ssl_method_tab[i].name, s) == 0) {
+ #if defined(HAVE_SSL_CTX_SET_MIN_PROTO_VERSION)
+@@ -185,7 +185,7 @@ ossl_sslctx_set_ssl_version(VALUE self, VALUE ssl_meth
+         }
+     }
+ 
+-    ossl_raise(rb_eArgError, "unknown SSL method `%"PRIsVALUE"'.", m);
++    ossl_raise(rb_eArgError, "unknown SSL method `%s'.", s);
+ }
+ 
+ static VALUE

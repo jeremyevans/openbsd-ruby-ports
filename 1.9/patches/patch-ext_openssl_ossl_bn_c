@@ -1,0 +1,40 @@
+$OpenBSD$
+
+Index: ext/openssl/ossl_bn.c
+--- ext/openssl/ossl_bn.c.orig
++++ ext/openssl/ossl_bn.c
+@@ -98,23 +98,24 @@ integer_to_bnptr(VALUE obj, BIGNUM *orig)
+ 	    BN_set_negative(bn, 1);
+     }
+     else { /* assuming Bignum */
+-	size_t len = rb_absint_size(obj, NULL);
+-	unsigned char *bin;
++	int i, j, len = RBIGNUM_LENINT(obj);
++	BDIGIT *ds = RBIGNUM_DIGITS(obj);
+ 	VALUE buf;
+-	int sign;
++	unsigned char *bin = (unsigned char*)ALLOCV_N(BDIGIT, buf, len);
+ 
+-	if (INT_MAX < len) {
+-	    rb_raise(eBNError, "bignum too long");
++	for (i = 0; len > i; i++) {
++	    BDIGIT v = ds[i];
++	    for (j = SIZEOF_BDIGITS - 1; 0 <= j; j--) {
++		bin[(len-1-i)*SIZEOF_BDIGITS+j] = v&0xff;
++		v >>= 8;
++	    }
+ 	}
+-	bin = (unsigned char*)ALLOCV_N(unsigned char, buf, len);
+-	sign = rb_integer_pack(obj, bin, len, 1, 0, INTEGER_PACK_BIG_ENDIAN);
+ 
+ 	bn = BN_bin2bn(bin, (int)len, orig);
+ 	ALLOCV_END(buf);
+-	if (!bn)
++	if (!BN_bin2bn(bin, (int)SIZEOF_BDIGITS*len, bn))
+ 	    ossl_raise(eBNError, "BN_bin2bn");
+-	if (sign < 0)
+-	    BN_set_negative(bn, 1);
++	if (!RBIGNUM_SIGN(obj)) BN_set_negative(bn, 1);
+     }
+ 
+     return bn;

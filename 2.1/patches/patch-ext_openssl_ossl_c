@@ -1,0 +1,14 @@
+$OpenBSD$
+
+Index: ext/openssl/ossl.c
+--- ext/openssl/ossl.c.orig
++++ ext/openssl/ossl.c
+@@ -9,7 +9,7 @@
+  */
+ #include "ossl.h"
+ #include <stdarg.h> /* for ossl_raise */
+-#include <ruby/thread_native.h> /* for OpenSSL < 1.1.0 locks */
++#include <../../thread_native.h> /* for OpenSSL < 1.1.0 locks */
+ 
+ /*
+  * Data Conversion

@@ -3,12 +3,17 @@ $OpenBSD$
 Index: ext/openssl/ossl.h
 --- ext/openssl/ossl.h.orig
 +++ ext/openssl/ossl.h
-@@ -55,7 +55,7 @@ extern "C" {
- #endif
+@@ -12,6 +12,13 @@
+ 
+ #include RUBY_EXTCONF_H
+ 
++#define RB_BLOCK_CALL_FUNC_ARGLIST(yielded_arg, callback_arg) \
++    VALUE yielded_arg, VALUE callback_arg, int argc, const VALUE *argv, VALUE blockarg
++#define INTEGER_PACK_BIG_ENDIAN 0x11
++#define rb_funcallv rb_funcall2
++#define RARRAY_AREF(a, i)    (RARRAY_PTR(a)[i])
++#define RHASH_SET_IFNONE(h, x) RHASH(h)->ifnone = x
++
+ #include <assert.h>
  #include <errno.h>
- #include <openssl/err.h>
--#include <openssl/asn1_mac.h>
-+#include <openssl/asn1.h>
- #include <openssl/x509v3.h>
- #include <openssl/ssl.h>
- #include <openssl/pkcs12.h>
+ #include <ruby.h>

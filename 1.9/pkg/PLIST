@@ -39,8 +39,8 @@ include/ruby-${RUBYLIBREV}/ruby/vm.h
 include/ruby-${RUBYLIBREV}/${SUB}/
 include/ruby-${RUBYLIBREV}/${SUB}/ruby/
 include/ruby-${RUBYLIBREV}/${SUB}/ruby/config.h
-lib/libruby19-static.a
-lib/libruby19.so
+@static-lib lib/libruby19-static.a
+@so lib/libruby19.so
 @lib lib/libruby19.so.${LIBruby19_VERSION}
 lib/pkgconfig/ruby-${REV}.pc
 lib/ruby/
@@ -208,9 +208,8 @@ lib/ruby/${RUBYLIBREV}/openssl/buffering.rb
 lib/ruby/${RUBYLIBREV}/openssl/cipher.rb
 lib/ruby/${RUBYLIBREV}/openssl/config.rb
 lib/ruby/${RUBYLIBREV}/openssl/digest.rb
-lib/ruby/${RUBYLIBREV}/openssl/ssl-internal.rb
+lib/ruby/${RUBYLIBREV}/openssl/pkey.rb
 lib/ruby/${RUBYLIBREV}/openssl/ssl.rb
-lib/ruby/${RUBYLIBREV}/openssl/x509-internal.rb
 lib/ruby/${RUBYLIBREV}/openssl/x509.rb
 lib/ruby/${RUBYLIBREV}/optparse/
 lib/ruby/${RUBYLIBREV}/optparse.rb
@@ -746,109 +745,111 @@ lib/ruby/${RUBYLIBREV}/webrick/ssl.rb
 lib/ruby/${RUBYLIBREV}/webrick/utils.rb
 lib/ruby/${RUBYLIBREV}/webrick/version.rb
 lib/ruby/${RUBYLIBREV}/${SUB}/
-lib/ruby/${RUBYLIBREV}/${SUB}/bigdecimal.so
-lib/ruby/${RUBYLIBREV}/${SUB}/continuation.so
-lib/ruby/${RUBYLIBREV}/${SUB}/coverage.so
-lib/ruby/${RUBYLIBREV}/${SUB}/curses.so
-lib/ruby/${RUBYLIBREV}/${SUB}/date_core.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/bigdecimal.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/continuation.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/coverage.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/curses.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/date_core.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/dbm.so
 lib/ruby/${RUBYLIBREV}/${SUB}/digest/
-lib/ruby/${RUBYLIBREV}/${SUB}/digest.so
-lib/ruby/${RUBYLIBREV}/${SUB}/digest/bubblebabble.so
-lib/ruby/${RUBYLIBREV}/${SUB}/digest/md5.so
-lib/ruby/${RUBYLIBREV}/${SUB}/digest/rmd160.so
-lib/ruby/${RUBYLIBREV}/${SUB}/digest/sha1.so
-lib/ruby/${RUBYLIBREV}/${SUB}/digest/sha2.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/digest.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/digest/bubblebabble.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/digest/md5.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/digest/rmd160.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/digest/sha1.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/digest/sha2.so
 lib/ruby/${RUBYLIBREV}/${SUB}/dl/
-lib/ruby/${RUBYLIBREV}/${SUB}/dl.so
-lib/ruby/${RUBYLIBREV}/${SUB}/dl/callback.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/dl.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/dl/callback.so
 lib/ruby/${RUBYLIBREV}/${SUB}/enc/
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/big5.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/cp949.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/emacs_mule.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/encdb.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/euc_jp.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/euc_kr.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/euc_tw.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/gb18030.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/gb2312.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/gbk.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_1.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_10.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_11.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_13.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_14.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_15.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_16.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_2.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_3.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_4.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_5.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_6.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_7.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_8.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_9.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/koi8_r.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/koi8_u.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/shift_jis.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/big5.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/cp949.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/emacs_mule.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/encdb.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/euc_jp.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/euc_kr.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/euc_tw.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/gb18030.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/gb2312.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/gbk.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_1.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_10.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_11.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_13.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_14.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_15.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_16.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_2.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_3.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_4.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_5.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_6.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_7.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_8.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/iso_8859_9.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/koi8_r.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/koi8_u.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/shift_jis.so
 lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/big5.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/chinese.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/emoji.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/emoji_iso2022_kddi.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/emoji_sjis_docomo.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/emoji_sjis_kddi.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/emoji_sjis_softbank.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/escape.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/gb18030.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/gbk.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/iso2022.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/japanese.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/japanese_euc.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/japanese_sjis.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/korean.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/single_byte.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/transdb.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/utf8_mac.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/utf_16_32.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/utf_16be.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/utf_16le.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/utf_32be.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/utf_32le.so
-lib/ruby/${RUBYLIBREV}/${SUB}/enc/windows_1251.so
-lib/ruby/${RUBYLIBREV}/${SUB}/etc.so
-lib/ruby/${RUBYLIBREV}/${SUB}/fcntl.so
-lib/ruby/${RUBYLIBREV}/${SUB}/fiber.so
-lib/ruby/${RUBYLIBREV}/${SUB}/fiddle.so
-lib/ruby/${RUBYLIBREV}/${SUB}/iconv.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/big5.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/chinese.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/emoji.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/emoji_iso2022_kddi.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/emoji_sjis_docomo.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/emoji_sjis_kddi.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/emoji_sjis_softbank.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/escape.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/gb18030.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/gbk.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/iso2022.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/japanese.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/japanese_euc.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/japanese_sjis.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/korean.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/single_byte.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/transdb.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/utf8_mac.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/utf_16_32.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/utf_16be.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/utf_16le.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/utf_32be.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/utf_32le.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/enc/windows_1251.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/etc.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/fcntl.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/fiber.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/fiddle.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/gdbm.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/iconv.so
 lib/ruby/${RUBYLIBREV}/${SUB}/io/
-lib/ruby/${RUBYLIBREV}/${SUB}/io/console.so
-lib/ruby/${RUBYLIBREV}/${SUB}/io/nonblock.so
-lib/ruby/${RUBYLIBREV}/${SUB}/io/wait.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/io/console.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/io/nonblock.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/io/wait.so
 lib/ruby/${RUBYLIBREV}/${SUB}/json/
 lib/ruby/${RUBYLIBREV}/${SUB}/json/ext/
-lib/ruby/${RUBYLIBREV}/${SUB}/json/ext/generator.so
-lib/ruby/${RUBYLIBREV}/${SUB}/json/ext/parser.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/json/ext/generator.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/json/ext/parser.so
 lib/ruby/${RUBYLIBREV}/${SUB}/mathn/
-lib/ruby/${RUBYLIBREV}/${SUB}/mathn/complex.so
-lib/ruby/${RUBYLIBREV}/${SUB}/mathn/rational.so
-lib/ruby/${RUBYLIBREV}/${SUB}/nkf.so
-lib/ruby/${RUBYLIBREV}/${SUB}/objspace.so
-lib/ruby/${RUBYLIBREV}/${SUB}/openssl.so
-lib/ruby/${RUBYLIBREV}/${SUB}/pathname.so
-lib/ruby/${RUBYLIBREV}/${SUB}/psych.so
-lib/ruby/${RUBYLIBREV}/${SUB}/pty.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/mathn/complex.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/mathn/rational.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/nkf.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/objspace.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/openssl.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/pathname.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/psych.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/pty.so
 lib/ruby/${RUBYLIBREV}/${SUB}/racc/
-lib/ruby/${RUBYLIBREV}/${SUB}/racc/cparse.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/racc/cparse.so
 lib/ruby/${RUBYLIBREV}/${SUB}/rbconfig.rb
-lib/ruby/${RUBYLIBREV}/${SUB}/readline.so
-lib/ruby/${RUBYLIBREV}/${SUB}/ripper.so
-lib/ruby/${RUBYLIBREV}/${SUB}/sdbm.so
-lib/ruby/${RUBYLIBREV}/${SUB}/socket.so
-lib/ruby/${RUBYLIBREV}/${SUB}/stringio.so
-lib/ruby/${RUBYLIBREV}/${SUB}/strscan.so
-lib/ruby/${RUBYLIBREV}/${SUB}/syck.so
-lib/ruby/${RUBYLIBREV}/${SUB}/syslog.so
-lib/ruby/${RUBYLIBREV}/${SUB}/zlib.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/readline.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/ripper.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/sdbm.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/socket.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/stringio.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/strscan.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/syck.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/syslog.so
+@so lib/ruby/${RUBYLIBREV}/${SUB}/zlib.so
 lib/ruby/${RUBYLIBREV}/xmlrpc/
 lib/ruby/${RUBYLIBREV}/xmlrpc/base64.rb
 lib/ruby/${RUBYLIBREV}/xmlrpc/client.rb
@@ -896,6 +897,3 @@ lib/ruby/vendor_ruby/${RUBYLIBREV}/${SUB}/
 @man man/man1/ri19.1
 @man man/man1/ruby19.1
 share/doc/ruby/
-share/ri/
-share/ri/${RUBYLIBREV}/
-share/ri/${RUBYLIBREV}/system/

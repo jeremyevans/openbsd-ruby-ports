@@ -1,0 +1,35 @@
+$OpenBSD$
+
+Index: ext/openssl/lib/openssl/buffering.rb
+--- ext/openssl/lib/openssl/buffering.rb.orig
++++ ext/openssl/lib/openssl/buffering.rb
+@@ -168,7 +168,7 @@ module OpenSSL::Buffering
+   # that read_nonblock should not raise an IO::Wait*able exception, but
+   # return the symbol :wait_writable or :wait_readable instead.
+ 
+-  def read_nonblock(maxlen, buf=nil, exception: true)
++  def read_nonblock(maxlen, buf=nil, opts={})
+     if maxlen == 0
+       if buf
+         buf.clear
+@@ -178,7 +178,7 @@ module OpenSSL::Buffering
+       end
+     end
+     if @rbuffer.empty?
+-      return sysread_nonblock(maxlen, buf, exception: exception)
++      return sysread_nonblock(maxlen, buf, opts)
+     end
+     ret = consume_rbuff(maxlen)
+     if buf
+@@ -380,9 +380,9 @@ module OpenSSL::Buffering
+   # that write_nonblock should not raise an IO::Wait*able exception, but
+   # return the symbol :wait_writable or :wait_readable instead.
+ 
+-  def write_nonblock(s, exception: true)
++  def write_nonblock(s, opts={})
+     flush
+-    syswrite_nonblock(s, exception: exception)
++    syswrite_nonblock(s, opts)
+   end
+ 
+   ##
