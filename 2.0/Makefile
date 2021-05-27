@@ -8,13 +8,27 @@ DISTNAME =		ruby-${VERSION}-p${PATCHLEVEL}
 SHARED_LIBS =		ruby${BINREV}	1.1
 PKGNAME =		ruby-${VERSION}.${PATCHLEVEL}
 
-REVISION =		7
+REVISION =		8
 
 BUILD_DEPENDS =		shells/bash
 
 CONFIGURE_SCRIPT =	${LOCALBASE}/bin/bash ./configure
 
 WANTLIB =		ncursesw termcap
+
+CONFIGURE_ARGS =	--enable-shared \
+			--program-suffix=${BINREV} \
+			--with-soname=ruby${BINREV} \
+			--with-ruby-version=minor \
+			--with-mantype=doc \
+			--enable-pthread \
+			--enable-ipv6 \
+			--without-bundled-libffi \
+			--with-bundled-md5 \
+			--with-bundled-rmd160 \
+			--with-bundled-sha1 \
+			--with-bundled-sha2 \
+			--disable-option-checking
 
 DISTFILES =	${DISTNAME}.tar.gz \
 		ruby-2.4.9.tar.gz

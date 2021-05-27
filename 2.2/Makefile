@@ -2,12 +2,26 @@
 
 VERSION =		2.2.10
 NEXTVER =		2.3
-REVISION =		4
+REVISION =		5
 
 SHARED_LIBS =		ruby${BINREV}	1.3
 
 DISTFILES =	ruby-${VERSION}.tar.gz \
 		ruby-2.4.9.tar.gz
+
+CONFIGURE_ARGS =	--enable-shared \
+			--program-suffix=${BINREV} \
+			--with-soname=ruby${BINREV} \
+			--with-ruby-version=minor \
+			--with-mantype=doc \
+			--enable-pthread \
+			--enable-ipv6 \
+			--without-bundled-libffi \
+			--with-bundled-md5 \
+			--with-bundled-rmd160 \
+			--with-bundled-sha1 \
+			--with-bundled-sha2 \
+			--disable-option-checking
 
 post-extract:
 	rm -rf ${WRKSRC}/ext/fiddle/libffi-*

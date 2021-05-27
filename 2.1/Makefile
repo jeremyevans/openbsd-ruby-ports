@@ -5,12 +5,26 @@ NEXTVER =		2.2
 
 SHARED_LIBS =		ruby${BINREV}	1.2
 
-REVISION =		13
+REVISION =		14
 
 CONFIGURE_ENV +=	CFLAGS="-O0 -ggdb"
 
 DISTFILES =	ruby-${VERSION}.tar.gz \
 		ruby-2.4.9.tar.gz
+
+CONFIGURE_ARGS =	--enable-shared \
+			--program-suffix=${BINREV} \
+			--with-soname=ruby${BINREV} \
+			--with-ruby-version=minor \
+			--with-mantype=doc \
+			--enable-pthread \
+			--enable-ipv6 \
+			--without-bundled-libffi \
+			--with-bundled-md5 \
+			--with-bundled-rmd160 \
+			--with-bundled-sha1 \
+			--with-bundled-sha2 \
+			--disable-option-checking
 
 post-extract:
 	rm -rf ${WRKSRC}/ext/openssl
