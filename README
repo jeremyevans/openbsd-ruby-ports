@@ -6,3 +6,10 @@ then you should be able to build these ports.
 This ports are simplified versions of what was included
 in OpenBSD.  No subpackages are used, and support for
 gdbm, tk, and ri_docs has been dropped.
+
+Other changes:
+
+Ruby 1.8: Rubygems 1.8.24 has been integrated and the
+          openssl extension is not built.
+Ruby 1.9-2.3: The openssl extension from Ruby 2.4 has been
+              backported to build with modern LibreSSL.
