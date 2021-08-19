@@ -25,7 +25,7 @@ RUBYLIBREV =		1.9.1
 SUBST_VARS +=		RUBYLIBREV
 
 DISTFILES =	${DISTNAME}.tar.gz \
-		ruby-2.4.9.tar.gz
+		ruby-2.4.9.tar.gz:0
 
 post-extract:
 	rm -rf ${WRKSRC}/ext/openssl
