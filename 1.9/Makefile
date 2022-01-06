@@ -8,7 +8,7 @@ DISTNAME =		ruby-${VERSION}-p${PATCHLEVEL}
 SHARED_LIBS =		ruby${BINREV} 1.1
 PKGNAME =		ruby-${VERSION}.${PATCHLEVEL}
 
-REVISION =		8
+REVISION =		9
 
 CONFIGURE_ARGS =	--enable-shared \
 			--program-suffix=${BINREV} \
@@ -26,6 +26,8 @@ SUBST_VARS +=		RUBYLIBREV
 
 DISTFILES =	${DISTNAME}.tar.gz \
 		ruby-2.4.9.tar.gz:0
+
+CONFIGURE_ENV = CFLAGS="${CFLAGS} -O1"
 
 post-extract:
 	rm -rf ${WRKSRC}/ext/openssl

@@ -819,7 +819,6 @@ lib/ruby/${RUBYLIBREV}/${SUB}/enc/trans/
 @so lib/ruby/${RUBYLIBREV}/${SUB}/fcntl.so
 @so lib/ruby/${RUBYLIBREV}/${SUB}/fiber.so
 @so lib/ruby/${RUBYLIBREV}/${SUB}/fiddle.so
-@so lib/ruby/${RUBYLIBREV}/${SUB}/gdbm.so
 @so lib/ruby/${RUBYLIBREV}/${SUB}/iconv.so
 lib/ruby/${RUBYLIBREV}/${SUB}/io/
 @so lib/ruby/${RUBYLIBREV}/${SUB}/io/console.so

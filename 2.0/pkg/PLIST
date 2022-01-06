@@ -927,7 +927,6 @@ lib/ruby/${REV}/${SUB}/enc/trans/
 @so lib/ruby/${REV}/${SUB}/fcntl.so
 @so lib/ruby/${REV}/${SUB}/fiber.so
 @so lib/ruby/${REV}/${SUB}/fiddle.so
-@so lib/ruby/${REV}/${SUB}/gdbm.so
 lib/ruby/${REV}/${SUB}/io/
 @so lib/ruby/${REV}/${SUB}/io/console.so
 @so lib/ruby/${REV}/${SUB}/io/nonblock.so

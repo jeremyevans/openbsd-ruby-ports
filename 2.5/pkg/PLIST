@@ -949,7 +949,6 @@ lib/ruby/${REV}/${SUB}/enc/trans/
 @so lib/ruby/${REV}/${SUB}/fcntl.so
 @so lib/ruby/${REV}/${SUB}/fiber.so
 @so lib/ruby/${REV}/${SUB}/fiddle.so
-@so lib/ruby/${REV}/${SUB}/gdbm.so
 lib/ruby/${REV}/${SUB}/io/
 @so lib/ruby/${REV}/${SUB}/io/console.so
 @so lib/ruby/${REV}/${SUB}/io/nonblock.so
@@ -1375,7 +1374,6 @@ lib/ruby/gems/${REV}/specifications/default/etc-1.0.0.gemspec
 lib/ruby/gems/${REV}/specifications/default/fcntl-1.0.0.gemspec
 lib/ruby/gems/${REV}/specifications/default/fiddle-1.0.0.gemspec
 lib/ruby/gems/${REV}/specifications/default/fileutils-1.0.2.gemspec
-lib/ruby/gems/${REV}/specifications/default/gdbm-2.0.0.gemspec
 lib/ruby/gems/${REV}/specifications/default/io-console-0.4.6.gemspec
 lib/ruby/gems/${REV}/specifications/default/ipaddr-1.2.0.gemspec
 lib/ruby/gems/${REV}/specifications/default/json-2.1.0.gemspec
