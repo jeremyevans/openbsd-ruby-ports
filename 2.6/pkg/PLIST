@@ -1,4 +1,3 @@
-@comment $OpenBSD: PLIST,v$
 @option no-default-conflict
 @option is-branch
 @conflict ruby->=2.6,<2.7
@@ -44,7 +43,7 @@ include/ruby-${REV}/ruby/util.h
 include/ruby-${REV}/ruby/version.h
 include/ruby-${REV}/ruby/vm.h
 include/ruby-${REV}/${SUB}/
-include/ruby-${REV}/${SUB}/rb_mjit_min_header-2.6.9.h
+include/ruby-${REV}/${SUB}/rb_mjit_min_header-2.6.10.h
 include/ruby-${REV}/${SUB}/ruby/
 include/ruby-${REV}/${SUB}/ruby/config.h
 @so lib/libruby26.so
@@ -1674,7 +1673,7 @@ lib/ruby/gems/${REV}/specifications/default/bigdecimal-1.4.1.gemspec
 lib/ruby/gems/${REV}/specifications/default/bundler-1.17.2.gemspec
 lib/ruby/gems/${REV}/specifications/default/cmath-1.0.0.gemspec
 lib/ruby/gems/${REV}/specifications/default/csv-3.0.9.gemspec
-lib/ruby/gems/${REV}/specifications/default/date-2.0.2.gemspec
+lib/ruby/gems/${REV}/specifications/default/date-2.0.3.gemspec
 lib/ruby/gems/${REV}/specifications/default/dbm-1.0.0.gemspec
 lib/ruby/gems/${REV}/specifications/default/e2mmap-0.1.0.gemspec
 lib/ruby/gems/${REV}/specifications/default/etc-1.0.1.gemspec
