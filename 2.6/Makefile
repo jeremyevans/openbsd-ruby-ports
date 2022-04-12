@@ -1,5 +1,3 @@
-# $OpenBSD: Makefile,v 1.22 2017/09/16 22:45:26 jeremy Exp $
-
 VERSION =		2.6.10
 NEXTVER =		2.7
 

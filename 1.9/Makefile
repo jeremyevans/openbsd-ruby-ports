@@ -1,5 +1,3 @@
-# $OpenBSD: Makefile,v 1.51 2015/04/15 21:58:16 jeremy Exp $
-
 VERSION =		1.9.3
 PATCHLEVEL =		551
 NEXTVER =		2.0

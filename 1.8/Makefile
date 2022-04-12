@@ -1,5 +1,3 @@
-# $OpenBSD: Makefile,v 1.45 2017/09/16 22:54:58 jeremy Exp $
-
 VERSION=		1.8.7
 PATCHLEVEL=		374
 NEXTVER=		1.9

@@ -1,5 +1,3 @@
-# $OpenBSD: Makefile.inc,v 1.17 2017/11/01 10:52:06 jeremy Exp $
-
 COMMENT ?=	object oriented script language with threads
 
 DISTNAME ?=	ruby-${VERSION}
