@@ -1,5 +1,3 @@
-$OpenBSD: patch-lib_rubygems_ext_builder_rb,v 1.3 2014/11/07 15:18:56 dcoppa Exp $
-
 Use MAKE or make from ENV over rbconfig's make.
 https://github.com/rubygems/rubygems/commit/f2bad74dda8d8e463a092905f29c943c962d5e68
 

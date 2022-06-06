@@ -1,5 +1,3 @@
-$OpenBSD$
-
 Index: lib/rubygems/server.rb
 --- lib/rubygems/server.rb.orig
 +++ lib/rubygems/server.rb

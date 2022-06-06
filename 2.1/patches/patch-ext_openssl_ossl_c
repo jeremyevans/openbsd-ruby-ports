@@ -1,5 +1,3 @@
-$OpenBSD$
-
 Index: ext/openssl/ossl.c
 --- ext/openssl/ossl.c.orig
 +++ ext/openssl/ossl.c

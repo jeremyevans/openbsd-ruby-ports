@@ -1,5 +1,3 @@
-$OpenBSD$
-
 Index: lib/rubygems/package/tar_writer.rb
 --- lib/rubygems/package/tar_writer.rb.orig
 +++ lib/rubygems/package/tar_writer.rb

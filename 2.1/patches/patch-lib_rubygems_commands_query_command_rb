@@ -1,5 +1,3 @@
-$OpenBSD: patch-lib_rubygems_commands_query_command_rb,v 1.1 2017/09/02 21:32:07 jeremy Exp $
-
 Index: lib/rubygems/commands/query_command.rb
 --- lib/rubygems/commands/query_command.rb.orig
 +++ lib/rubygems/commands/query_command.rb

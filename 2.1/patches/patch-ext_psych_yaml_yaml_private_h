@@ -1,5 +1,3 @@
-$OpenBSD: patch-ext_psych_yaml_yaml_private_h,v 1.1 2017/09/16 22:52:40 jeremy Exp $
-
 Index: ext/psych/yaml/yaml_private.h
 --- ext/psych/yaml/yaml_private.h.orig
 +++ ext/psych/yaml/yaml_private.h

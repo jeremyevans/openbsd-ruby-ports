@@ -1,5 +1,3 @@
-$OpenBSD$
-
 Index: lib/rubygems/safe_yaml.rb
 --- lib/rubygems/safe_yaml.rb.orig
 +++ lib/rubygems/safe_yaml.rb

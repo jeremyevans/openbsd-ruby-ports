@@ -1,5 +1,3 @@
-$OpenBSD$
-
 Index: lib/net/ftp.rb
 --- lib/net/ftp.rb.orig
 +++ lib/net/ftp.rb

@@ -1,4 +1,3 @@
-$OpenBSD: patch-ext_ripper_depend,v 1.1 2017/02/21 17:04:45 jca Exp $
 --- ext/ripper/depend.orig	Wed Jul  6 07:03:14 2016
 +++ ext/ripper/depend	Tue Feb 21 17:54:06 2017
 @@ -46,6 +46,8 @@ ripper.E: ripper.c

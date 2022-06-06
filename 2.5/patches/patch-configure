@@ -1,5 +1,3 @@
-$OpenBSD: patch-configure,v 1.3 2019/08/30 15:57:24 jeremy Exp $
-
 Fix so name, checking for DOT and DOXYGEN.
 
 Set correct shared library name.

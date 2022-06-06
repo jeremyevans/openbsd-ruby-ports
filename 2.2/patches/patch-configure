@@ -1,5 +1,3 @@
-$OpenBSD: patch-configure,v 1.3 2017/09/16 22:45:26 jeremy Exp $
-
 Fix so name, checking for DOT and DOXYGEN.
 
 Override the arch setting to remove OpenBSD version from it,

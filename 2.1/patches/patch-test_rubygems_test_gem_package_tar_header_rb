@@ -1,5 +1,3 @@
-$OpenBSD$
-
 Index: test/rubygems/test_gem_package_tar_header.rb
 --- test/rubygems/test_gem_package_tar_header.rb.orig
 +++ test/rubygems/test_gem_package_tar_header.rb

@@ -1,5 +1,3 @@
-$OpenBSD: patch-common_mk,v 1.5 2013/01/23 18:18:41 jeremy Exp $
-
 Don't regenerate rdoc documentation during install.
 
 --- common.mk.orig	Thu Dec 20 02:10:05 2012

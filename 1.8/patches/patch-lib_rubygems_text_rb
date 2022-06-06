@@ -1,5 +1,3 @@
-$OpenBSD: patch-lib_rubygems_text_rb,v 1.1 2017/09/02 21:34:12 jeremy Exp $
-
 Index: lib/rubygems/text.rb
 --- lib/rubygems/text.rb.orig
 +++ lib/rubygems/text.rb

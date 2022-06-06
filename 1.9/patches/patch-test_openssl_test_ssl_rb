@@ -1,5 +1,3 @@
-$OpenBSD: patch-test_openssl_test_ssl_rb,v 1.1 2015/04/15 21:58:16 jeremy Exp $
-
 Fix overly permissive matching of hostnames, CVE-2015-1855.
 Backport of upstream revision r50294.
 

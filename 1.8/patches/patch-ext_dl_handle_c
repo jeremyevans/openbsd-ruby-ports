@@ -1,5 +1,3 @@
-$OpenBSD: patch-ext_dl_handle_c,v 1.1 2015/12/18 17:36:31 jeremy Exp $
-
 Backport fix for CVE-2009-5147 and CVE-2015-7551 from r23405.
 
 --- ext/dl/handle.c.orig	Wed Dec 16 09:07:34 2015

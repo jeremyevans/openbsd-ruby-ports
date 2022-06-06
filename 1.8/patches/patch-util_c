@@ -1,5 +1,3 @@
-$OpenBSD: patch-util_c,v 1.1 2013/11/24 02:27:08 jeremy Exp $
-
 Backport r43776 and r43782 from Ruby SVN to fix CVE-2013-4164.
 
 --- util.c.orig	Sun Nov 21 23:21:34 2010

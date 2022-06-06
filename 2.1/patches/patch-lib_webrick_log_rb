@@ -1,5 +1,3 @@
-$OpenBSD: patch-lib_webrick_log_rb,v 1.1 2017/09/16 22:52:40 jeremy Exp $
-
 Index: lib/webrick/log.rb
 --- lib/webrick/log.rb.orig
 +++ lib/webrick/log.rb

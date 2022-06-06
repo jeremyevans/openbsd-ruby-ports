@@ -1,5 +1,3 @@
-$OpenBSD: patch-lib_rubygems_specification_rb,v 1.1 2017/09/02 21:32:07 jeremy Exp $
-
 Index: lib/rubygems/specification.rb
 --- lib/rubygems/specification.rb.orig
 +++ lib/rubygems/specification.rb

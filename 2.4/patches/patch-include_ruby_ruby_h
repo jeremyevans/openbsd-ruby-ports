@@ -1,5 +1,3 @@
-$OpenBSD: patch-include_ruby_ruby_h,v 1.4 2018/03/31 21:12:45 jeremy Exp $
-
 Fix GCC error: #pragma GCC diagnostic not allowed inside functions
 when compiling some extensions.
 

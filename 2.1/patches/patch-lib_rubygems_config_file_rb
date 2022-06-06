@@ -1,5 +1,3 @@
-$OpenBSD$
-
 Index: lib/rubygems/config_file.rb
 --- lib/rubygems/config_file.rb.orig
 +++ lib/rubygems/config_file.rb

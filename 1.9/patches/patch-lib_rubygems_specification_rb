@@ -1,5 +1,3 @@
-$OpenBSD: patch-lib_rubygems_specification_rb,v 1.1 2014/06/25 15:38:39 jeremy Exp $
-
 Backport fix for Gem.refresh from upstream commit
 b61c621fb2e00e215bcc8ad7d9fe45433881da14.
 

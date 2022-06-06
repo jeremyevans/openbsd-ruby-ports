@@ -1,5 +1,3 @@
-$OpenBSD$
-
 Index: lib/rubygems/package/old.rb
 --- lib/rubygems/package/old.rb.orig
 +++ lib/rubygems/package/old.rb

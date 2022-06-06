@@ -1,5 +1,3 @@
-$OpenBSD: patch-ext_socket_socket_c,v 1.2 2012/09/18 16:02:53 jeremy Exp $
-
 Fix UnixSocket#recv_io on 64-bit archs, backported from ruby SVN
 revisions 22141 and 22633.
 
