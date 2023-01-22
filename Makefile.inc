@@ -17,6 +17,8 @@ PERMIT_PACKAGE ?= Yes
 
 MASTER_SITES ?=	http://cache.ruby-lang.org/pub/ruby/${VERSION:R}/
 MASTER_SITES0 ?=http://cache.ruby-lang.org/pub/ruby/2.4/
+MASTER_SITES1 ?=https://github.com/ruby/ruby/commit/
+PATCH_DIST_STRIP ?=     -p1
 
 CONFIGURE_STYLE ?=	gnu
 CONFIGURE_ARGS ?=	--enable-shared \
