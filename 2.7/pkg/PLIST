@@ -46,7 +46,7 @@ include/ruby-${REV}/ruby/util.h
 include/ruby-${REV}/ruby/version.h
 include/ruby-${REV}/ruby/vm.h
 include/ruby-${REV}/${SUB}/
-include/ruby-${REV}/${SUB}/rb_mjit_min_header-2.7.7.h
+include/ruby-${REV}/${SUB}/rb_mjit_min_header-2.7.8.h
 include/ruby-${REV}/${SUB}/ruby/
 include/ruby-${REV}/${SUB}/ruby/config.h
 @so lib/libruby27.so
@@ -1734,7 +1734,7 @@ lib/ruby/gems/${REV}/gems/test-unit-3.3.4/test/util/test_observable.rb
 lib/ruby/gems/${REV}/gems/test-unit-3.3.4/test/util/test_procwrapper.rb
 lib/ruby/gems/${REV}/gems/timeout-0.1.0/
 lib/ruby/gems/${REV}/gems/tracer-0.1.0/
-lib/ruby/gems/${REV}/gems/uri-0.10.0/
+lib/ruby/gems/${REV}/gems/uri-0.10.0.2/
 lib/ruby/gems/${REV}/gems/webrick-1.6.1/
 lib/ruby/gems/${REV}/gems/xmlrpc-0.3.0/
 lib/ruby/gems/${REV}/gems/xmlrpc-0.3.0/.gitignore
@@ -1808,7 +1808,7 @@ lib/ruby/gems/${REV}/specifications/default/stringio-0.1.0.gemspec
 lib/ruby/gems/${REV}/specifications/default/strscan-1.0.3.gemspec
 lib/ruby/gems/${REV}/specifications/default/timeout-0.1.0.gemspec
 lib/ruby/gems/${REV}/specifications/default/tracer-0.1.0.gemspec
-lib/ruby/gems/${REV}/specifications/default/uri-0.10.0.gemspec
+lib/ruby/gems/${REV}/specifications/default/uri-0.10.0.2.gemspec
 lib/ruby/gems/${REV}/specifications/default/webrick-1.6.1.gemspec
 lib/ruby/gems/${REV}/specifications/default/yaml-0.1.0.gemspec
 lib/ruby/gems/${REV}/specifications/default/zlib-1.1.0.gemspec
