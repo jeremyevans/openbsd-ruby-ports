@@ -7,10 +7,8 @@ SHARED_LIBS=		ruby${BINREV} 0.0
 PKGNAME=		ruby-${VERSION}.${PATCHLEVEL}
 
 REVISION=		20
-MASTER_SITES0=		http://production.cf.rubygems.org/rubygems/
-
-DISTFILES=		${DISTNAME}${EXTRACT_SUFX} \
-			rubygems-1.8.24.tgz:0
+SITES.rubygems=		http://production.cf.rubygems.org/rubygems/
+DISTFILES.rubygems=	rubygems-1.8.24.tgz
 
 CONFIGURE_ARGS=		--enable-shared \
 			--program-suffix=${BINREV} \

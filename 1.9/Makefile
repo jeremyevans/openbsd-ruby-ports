@@ -22,8 +22,7 @@ LIB_DEPENDS =		converters/libiconv
 RUBYLIBREV =		1.9.1
 SUBST_VARS +=		RUBYLIBREV
 
-DISTFILES =	${DISTNAME}.tar.gz \
-		ruby-2.4.9.tar.gz:0
+DISTFILES.ruby24 =	ruby-2.4.9.tar.gz
 
 CONFIGURE_ENV = CFLAGS="${CFLAGS} -O1"
 

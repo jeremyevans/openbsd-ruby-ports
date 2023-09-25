@@ -4,8 +4,7 @@ REVISION =		7
 
 SHARED_LIBS =		ruby${BINREV}	1.3
 
-DISTFILES =	ruby-${VERSION}.tar.gz \
-		ruby-2.4.9.tar.gz:0
+DISTFILES.ruby24 =	ruby-2.4.9.tar.gz
 
 CONFIGURE_ARGS =	--enable-shared \
 			--program-suffix=${BINREV} \

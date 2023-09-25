@@ -15,9 +15,9 @@ MAINTAINER ?=	Jeremy Evans <jeremy@openbsd.org>
 # GPL/Artistic/BSD/Public Domain/Beer-Ware
 PERMIT_PACKAGE ?= Yes
 
-MASTER_SITES ?=	http://cache.ruby-lang.org/pub/ruby/${VERSION:R}/
-MASTER_SITES0 ?=http://cache.ruby-lang.org/pub/ruby/2.4/
-MASTER_SITES1 ?=https://github.com/ruby/ruby/commit/
+SITES ?=	http://cache.ruby-lang.org/pub/ruby/${VERSION:R}/
+SITES.ruby24 ?=http://cache.ruby-lang.org/pub/ruby/2.4/
+SITES.github ?=https://github.com/ruby/ruby/commit/
 PATCH_DIST_STRIP ?=     -p1
 
 CONFIGURE_STYLE ?=	gnu

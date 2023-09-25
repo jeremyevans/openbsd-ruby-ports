@@ -7,8 +7,7 @@ REVISION =		16
 
 CONFIGURE_ENV +=	CFLAGS="-O0 -ggdb"
 
-DISTFILES =	ruby-${VERSION}.tar.gz \
-		ruby-2.4.9.tar.gz:0
+DISTFILES.ruby24 =	ruby-2.4.9.tar.gz
 
 CONFIGURE_ARGS =	--enable-shared \
 			--program-suffix=${BINREV} \

@@ -4,8 +4,7 @@ REVISION =		6
 
 SHARED_LIBS =		ruby${BINREV}	2.0
 
-DISTFILES =	ruby-${VERSION}.tar.gz \
-		ruby-2.4.9.tar.gz:0
+DISTFILES.ruby24 =	ruby-2.4.9.tar.gz
 
 post-extract:
 	rm -rf ${WRKSRC}/ext/fiddle/libffi-*
