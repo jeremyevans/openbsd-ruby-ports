@@ -24,7 +24,7 @@ SUBST_VARS +=		RUBYLIBREV
 
 DISTFILES.ruby24 =	ruby-2.4.9.tar.gz
 
-CONFIGURE_ENV = CFLAGS="${CFLAGS} -O1"
+CONFIGURE_ENV = CFLAGS="${CFLAGS} -O0"
 
 post-extract:
 	rm -rf ${WRKSRC}/ext/openssl
