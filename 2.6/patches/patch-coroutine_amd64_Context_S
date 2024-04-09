@@ -1,0 +1,22 @@
+Add BTI support to amd64 coroutine.
+
+Index: coroutine/amd64/Context.S
+--- coroutine/amd64/Context.S.orig
++++ coroutine/amd64/Context.S
+@@ -5,6 +5,8 @@
+ ##  Copyright, 2018, by Samuel Williams. All rights reserved.
+ ##
+ 
++#include <cet.h>
++
+ .text
+ 
+ # For older linkers
+@@ -13,6 +15,7 @@ _coroutine_transfer:
+ 
+ .globl coroutine_transfer
+ coroutine_transfer:
++ 	_CET_ENDBR
+ 	# Save caller state
+ 	pushq %rbp
+ 	pushq %rbx

@@ -13,7 +13,7 @@ Index: file.c
  VALUE rb_cFile;
  VALUE rb_mFileTest;
  VALUE rb_cStat;
-@@ -4064,7 +4067,7 @@ realpath_rec(long *prefixlenp, VALUE *resolvedp, const
+@@ -4085,7 +4088,7 @@ realpath_rec(long *prefixlenp, VALUE *resolvedp, const
  }
  
  static VALUE
@@ -22,7 +22,7 @@ Index: file.c
  {
      long prefixlen;
      VALUE resolved;
-@@ -4158,6 +4161,76 @@ rb_check_realpath_internal(VALUE basedir, VALUE path, 
+@@ -4179,6 +4182,76 @@ rb_check_realpath_internal(VALUE basedir, VALUE path, 
      return resolved;
  }
  
@@ -99,7 +99,7 @@ Index: file.c
  VALUE
  rb_realpath_internal(VALUE basedir, VALUE path, int strict)
  {
-@@ -4579,8 +4652,6 @@ rb_file_s_split(VALUE klass, VALUE path)
+@@ -4600,8 +4673,6 @@ rb_file_s_split(VALUE klass, VALUE path)
      FilePathStringValue(path);		/* get rid of converting twice */
      return rb_assoc_new(rb_file_dirname(path), rb_file_s_basename(1,&path));
  }
