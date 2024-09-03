@@ -5,7 +5,7 @@ as far as I can tell.
 Index: ext/openssl/ossl_ocsp.c
 --- ext/openssl/ossl_ocsp.c.orig
 +++ ext/openssl/ossl_ocsp.c
-@@ -1093,7 +1093,7 @@ ossl_ocspbres_verify(int argc, VALUE *argv, VALUE self
+@@ -1094,7 +1094,7 @@ ossl_ocspbres_verify(int argc, VALUE *argv, VALUE self
       * exists in LibreSSL 2.1.10, 2.2.9, 2.3.6, 2.4.1.
       */
      if (!(flg & (OCSP_NOCHAIN | OCSP_NOVERIFY)) &&
