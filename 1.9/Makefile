@@ -1,12 +1,13 @@
 VERSION =		1.9.3
 PATCHLEVEL =		551
+REVISION =		11
+
 NEXTVER =		2.0
 DISTNAME =		ruby-${VERSION}-p${PATCHLEVEL}
 
 SHARED_LIBS =		ruby${BINREV} 1.1
 PKGNAME =		ruby-${VERSION}.${PATCHLEVEL}
 
-REVISION =		10
 
 CONFIGURE_ARGS =	--enable-shared \
 			--program-suffix=${BINREV} \

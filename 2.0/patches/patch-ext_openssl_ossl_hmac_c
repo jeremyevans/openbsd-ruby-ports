@@ -1,0 +1,24 @@
+Provide buffer when calling HMAC, as old approach that returned
+a static buffer is no longer supported.
+
+Index: ext/openssl/ossl_hmac.c
+--- ext/openssl/ossl_hmac.c.orig
++++ ext/openssl/ossl_hmac.c
+@@ -280,13 +280,14 @@ ossl_hmac_reset(VALUE self)
+ static VALUE
+ ossl_hmac_s_digest(VALUE klass, VALUE digest, VALUE key, VALUE data)
+ {
+-    unsigned char *buf;
++    unsigned char buf[EVP_MAX_MD_SIZE];
+     unsigned int buf_len;
+ 
+     StringValue(key);
+     StringValue(data);
+-    buf = HMAC(GetDigestPtr(digest), RSTRING_PTR(key), RSTRING_LENINT(key),
+-	       (unsigned char *)RSTRING_PTR(data), RSTRING_LEN(data), NULL, &buf_len);
++    if(!HMAC(GetDigestPtr(digest), RSTRING_PTR(key), RSTRING_LENINT(key),
++	       (unsigned char *)RSTRING_PTR(data), RSTRING_LEN(data), buf, &buf_len))
++	ossl_raise(eHMACError, "HMAC");
+ 
+     return rb_str_new((const char *)buf, buf_len);
+ }
