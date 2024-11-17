@@ -18,6 +18,7 @@ PERMIT_PACKAGE ?= Yes
 SITES ?=	http://cache.ruby-lang.org/pub/ruby/${VERSION:R}/
 SITES.ruby24 ?=http://cache.ruby-lang.org/pub/ruby/2.4/
 SITES.github ?=https://github.com/ruby/ruby/commit/
+SITES.openssl?=https://github.com/ruby/openssl/commit/
 PATCH_DIST_STRIP ?=     -p1
 PATCHORIG =		.orig
 
