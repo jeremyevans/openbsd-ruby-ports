@@ -6,7 +6,7 @@ DISTNAME =		ruby-${VERSION}-p${PATCHLEVEL}
 SHARED_LIBS=		ruby${BINREV} 0.0
 PKGNAME=		ruby-${VERSION}.${PATCHLEVEL}
 
-REVISION=		21
+REVISION=		22
 SITES.rubygems=		http://production.cf.rubygems.org/rubygems/
 DISTFILES.rubygems=	rubygems-1.8.24.tgz
 
