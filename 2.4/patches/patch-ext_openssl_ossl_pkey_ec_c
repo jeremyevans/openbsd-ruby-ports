@@ -1,18 +1,19 @@
-LibreSSL 4.1 dropped support for EC_POINTs_mul and EC_METHOD
+LibreSSL 3.8 dropped support for EC_GFp_nist_method()
+
+LibreSSL 4.1 dropped support for EC_METHOD
 
 Index: ext/openssl/ossl_pkey_ec.c
 --- ext/openssl/ossl_pkey_ec.c.orig
 +++ ext/openssl/ossl_pkey_ec.c
-@@ -725,6 +725,8 @@ ec_group_new(const EC_GROUP *group)
-  */
- static VALUE ossl_ec_group_initialize(int argc, VALUE *argv, VALUE self)
- {
-+    ossl_raise(rb_eRuntimeError, "not supported");
-+/*
-     VALUE arg1, arg2, arg3, arg4;
-     EC_GROUP *group;
+@@ -746,6 +746,7 @@ static VALUE ossl_ec_group_initialize(int argc, VALUE 
  
-@@ -743,7 +745,7 @@ static VALUE ossl_ec_group_initialize(int argc, VALUE 
+     switch (rb_scan_args(argc, argv, "13", &arg1, &arg2, &arg3, &arg4)) {
+     case 1:
++#if 0
+         if (SYMBOL_P(arg1)) {
+             const EC_METHOD *method = NULL;
+             ID id = SYM2ID(arg1);
+@@ -755,7 +756,7 @@ static VALUE ossl_ec_group_initialize(int argc, VALUE 
              } else if (id == s_GFp_mont) {
                  method = EC_GFp_mont_method();
              } else if (id == s_GFp_nist) {
@@ -21,55 +22,14 @@ Index: ext/openssl/ossl_pkey_ec.c
  #if !defined(OPENSSL_NO_EC2M)
              } else if (id == s_GF2m_simple) {
                  method = EC_GF2m_simple_method();
-@@ -777,7 +779,7 @@ static VALUE ossl_ec_group_initialize(int argc, VALUE 
-                 const char *name = StringValueCStr(arg1);
-                 int nid = OBJ_sn2nid(name);
+@@ -768,7 +769,9 @@ static VALUE ossl_ec_group_initialize(int argc, VALUE 
+             } else {
+                 ossl_raise(rb_eArgError, "unknown symbol, must be :GFp_simple, :GFp_mont, :GFp_nist or :GF2m_simple");
+             }
+-        } else if (rb_obj_is_kind_of(arg1, cEC_GROUP)) {
++        } else
++#endif
++        if (rb_obj_is_kind_of(arg1, cEC_GROUP)) {
+             const EC_GROUP *arg1_group;
  
--		ossl_clear_error(); /* ignore errors in d2i_ECPKParameters_bio() */
-+		ossl_clear_error();
-                 if (nid == NID_undef)
-                     ossl_raise(eEC_GROUP, "unknown curve name (%"PRIsVALUE")", arg1);
- 
-@@ -824,6 +826,7 @@ static VALUE ossl_ec_group_initialize(int argc, VALUE 
-         ossl_raise(eEC_GROUP, "");
-     RTYPEDDATA_DATA(self) = group;
- 
-+*/
-     return self;
- }
- 
-@@ -1635,6 +1638,8 @@ static VALUE ossl_ec_point_mul(int argc, VALUE *argv, 
- 	 * bignums | arg1[0] | arg1[1] | arg1[2] | ...
- 	 * points  | self    | arg2[0] | arg2[1] | ...
- 	 */
-+	ossl_raise(rb_eArgError, "not supported");
-+/*
- 	long i, num;
- 	VALUE bns_tmp, tmp_p, tmp_b;
- 	const EC_POINT **points;
-@@ -1642,7 +1647,7 @@ static VALUE ossl_ec_point_mul(int argc, VALUE *argv, 
- 
- 	Check_Type(arg1, T_ARRAY);
- 	Check_Type(arg2, T_ARRAY);
--	if (RARRAY_LEN(arg1) != RARRAY_LEN(arg2) + 1) /* arg2 must be 1 larger */
-+	if (RARRAY_LEN(arg1) != RARRAY_LEN(arg2) + 1)
- 	    ossl_raise(rb_eArgError, "bns must be 1 longer than points; see the documentation");
- 
- 	num = RARRAY_LEN(arg1);
-@@ -1655,7 +1660,7 @@ static VALUE ossl_ec_point_mul(int argc, VALUE *argv, 
- 	}
- 
- 	points = ALLOCV_N(const EC_POINT *, tmp_p, num);
--	points[0] = point_self; /* self */
-+	points[0] = point_self;
- 	for (i = 0; i < num - 1; i++)
- 	    GetECPoint(RARRAY_AREF(arg2, i), points[i + 1]);
- 
-@@ -1670,6 +1675,7 @@ static VALUE ossl_ec_point_mul(int argc, VALUE *argv, 
- 
- 	ALLOCV_END(tmp_b);
- 	ALLOCV_END(tmp_p);
-+*/
-     }
- 
-     return result;
+             SafeGetECGroup(arg1, arg1_group);
