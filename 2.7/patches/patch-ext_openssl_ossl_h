@@ -1,0 +1,13 @@
+Index: ext/openssl/ossl.h
+--- ext/openssl/ossl.h.orig
++++ ext/openssl/ossl.h
+@@ -27,7 +27,9 @@
+ #include <openssl/hmac.h>
+ #include <openssl/rand.h>
+ #include <openssl/conf.h>
++#ifndef __OpenBSD__
+ #include <openssl/conf_api.h>
++#endif
+ #include <openssl/crypto.h>
+ #if !defined(OPENSSL_NO_ENGINE)
+ #  include <openssl/engine.h>
