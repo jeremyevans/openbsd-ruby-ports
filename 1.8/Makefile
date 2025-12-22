@@ -6,11 +6,11 @@ DISTNAME =		ruby-${VERSION}-p${PATCHLEVEL}
 SHARED_LIBS=		ruby${BINREV} 0.0
 PKGNAME=		ruby-${VERSION}.${PATCHLEVEL}
 
-REVISION=		22
+REVISION=		23
 SITES.rubygems=		http://production.cf.rubygems.org/rubygems/
 DISTFILES.rubygems=	rubygems-1.8.24.tgz
 
-COMPILER=		ports-gcc
+CONFIGURE_ENV=		CFLAGS="-std=c89"
 CONFIGURE_ARGS=		--enable-shared \
 			--program-suffix=${BINREV} \
 			--enable-ipv6 \
