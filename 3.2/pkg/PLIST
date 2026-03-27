@@ -224,7 +224,7 @@ include/ruby-${REV}/ruby/util.h
 include/ruby-${REV}/ruby/version.h
 include/ruby-${REV}/ruby/vm.h
 include/ruby-${REV}/${SUB}/
-include/ruby-${REV}/${SUB}/rb_mjit_min_header-3.2.10.h
+include/ruby-${REV}/${SUB}/rb_mjit_min_header-3.2.11.h
 include/ruby-${REV}/${SUB}/ruby/
 include/ruby-${REV}/${SUB}/ruby/config.h
 @so lib/libruby32.so
@@ -2674,7 +2674,7 @@ lib/ruby/gems/${REV}/gems/un-0.2.1/
 lib/ruby/gems/${REV}/gems/uri-0.12.5/
 lib/ruby/gems/${REV}/gems/weakref-0.1.2/
 lib/ruby/gems/${REV}/gems/yaml-0.2.1/
-lib/ruby/gems/${REV}/gems/zlib-3.0.0/
+lib/ruby/gems/${REV}/gems/zlib-3.0.1/
 lib/ruby/gems/${REV}/plugins/
 lib/ruby/gems/${REV}/specifications/
 lib/ruby/gems/${REV}/specifications/debug-1.7.1.gemspec
@@ -2749,7 +2749,7 @@ lib/ruby/gems/${REV}/specifications/default/un-0.2.1.gemspec
 lib/ruby/gems/${REV}/specifications/default/uri-0.12.5.gemspec
 lib/ruby/gems/${REV}/specifications/default/weakref-0.1.2.gemspec
 lib/ruby/gems/${REV}/specifications/default/yaml-0.2.1.gemspec
-lib/ruby/gems/${REV}/specifications/default/zlib-3.0.0.gemspec
+lib/ruby/gems/${REV}/specifications/default/zlib-3.0.1.gemspec
 lib/ruby/gems/${REV}/specifications/matrix-0.4.2.gemspec
 lib/ruby/gems/${REV}/specifications/minitest-5.25.1.gemspec
 lib/ruby/gems/${REV}/specifications/net-ftp-0.2.1.gemspec
