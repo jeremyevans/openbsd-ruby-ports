@@ -1,0 +1,15 @@
+Allow building with modern compilers.
+
+Index: lex.c
+--- lex.c.orig
++++ lex.c
+@@ -65,9 +65,6 @@ hash (str, len)
+   return hval + asso_values[(unsigned char)str[len - 1]];
+ }
+ 
+-#ifdef __GNUC__
+-__inline
+-#endif
+ struct kwtable *
+ rb_reserved_word (str, len)
+      register const char *str;

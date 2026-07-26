@@ -10,7 +10,7 @@ REVISION=		23
 SITES.rubygems=		http://production.cf.rubygems.org/rubygems/
 DISTFILES.rubygems=	rubygems-1.8.24.tgz
 
-CONFIGURE_ENV=		CFLAGS="-std=c89"
+CONFIGURE_ENV=		CFLAGS="-std=c99 -Wno-incompatible-pointer-types -Wno-deprecated-non-prototype"
 CONFIGURE_ARGS=		--enable-shared \
 			--program-suffix=${BINREV} \
 			--enable-ipv6 \
