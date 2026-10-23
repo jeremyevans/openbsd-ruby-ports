@@ -2696,7 +2696,7 @@ lib/ruby/gems/${REV}/gems/rdoc-6.6.3.1/exe/rdoc
 lib/ruby/gems/${REV}/gems/rdoc-6.6.3.1/exe/ri
 lib/ruby/gems/${REV}/gems/readline-0.0.4/
 lib/ruby/gems/${REV}/gems/reline-0.5.10/
-lib/ruby/gems/${REV}/gems/resolv-0.3.1/
+lib/ruby/gems/${REV}/gems/resolv-0.3.2/
 lib/ruby/gems/${REV}/gems/resolv-replace-0.1.1/
 lib/ruby/gems/${REV}/gems/rexml-3.4.4/
 lib/ruby/gems/${REV}/gems/rexml-3.4.4/LICENSE.txt
@@ -3014,7 +3014,7 @@ lib/ruby/gems/${REV}/specifications/default/psych-5.1.2.gemspec
 lib/ruby/gems/${REV}/specifications/default/rdoc-6.6.3.1.gemspec
 lib/ruby/gems/${REV}/specifications/default/readline-0.0.4.gemspec
 lib/ruby/gems/${REV}/specifications/default/reline-0.5.10.gemspec
-lib/ruby/gems/${REV}/specifications/default/resolv-0.3.1.gemspec
+lib/ruby/gems/${REV}/specifications/default/resolv-0.3.2.gemspec
 lib/ruby/gems/${REV}/specifications/default/resolv-replace-0.1.1.gemspec
 lib/ruby/gems/${REV}/specifications/default/rinda-0.2.0.gemspec
 lib/ruby/gems/${REV}/specifications/default/ruby2_keywords-0.0.5.gemspec
