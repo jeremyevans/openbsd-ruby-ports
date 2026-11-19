@@ -8,7 +8,7 @@ so ports don't have to be bumped when OpenBSD version changes.
 Index: configure
 --- configure.orig
 +++ configure
-@@ -10999,7 +10999,7 @@ esac
+@@ -11225,7 +11225,7 @@ esac
      case "$target_cpu" in #(
    aarch64) :
  
@@ -17,7 +17,7 @@ Index: configure
  do :
  
  
-@@ -31459,7 +31459,7 @@ main (void)
+@@ -32243,7 +32243,7 @@ main (void)
  _ACEOF
  if ac_fn_c_try_link "$LINENO"
  then :
@@ -26,7 +26,7 @@ Index: configure
  then :
  
              { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: -A -n" >&5
-@@ -32007,7 +32007,7 @@ fi
+@@ -32804,7 +32804,7 @@ fi
  	 ;; #(
    openbsd*|mirbsd*) :
  
@@ -35,12 +35,12 @@ Index: configure
  	 ;; #(
    solaris*) :
  
-@@ -34134,7 +34134,7 @@ then :
+@@ -34996,7 +34996,7 @@ then :
  
- else $as_nop
- 
+ else case e in #(
+   e)
 -        arch="${target_cpu}-${target_os}"
 +        arch="${target_cpu}-openbsd"
- 
+      ;;
+ esac
  fi
-     printf "%s\n" "#define RUBY_PLATFORM \"$arch\"" >>confdefs.h
